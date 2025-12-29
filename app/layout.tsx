@@ -1,42 +1,55 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Cormorant_Garamond, Montserrat } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { Toaster } from '@/components/ui/toaster';
 
-const inter = Inter({ subsets: ['latin'] });
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
 
-const baseUrl = 'https://www.nuitblancheproduction.com';
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+});
+
+const baseUrl = 'https://www.loventia.fr';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  applicationName: 'Nuit Blanche Production',
+  applicationName: 'Loventia',
   title: {
-    template: '%s | Nuit Blanche Production',
-    default: 'Nuit Blanche Production | Agence Vidéo & Drone - Vosges',
+    template: '%s | Loventia Films',
+    default: 'Loventia | Vidéo & Photo de Mariage - Storytelling Cinématographique',
   },
   description:
-    'Agence de production vidéo à Golbey : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie, Inspection. BTP via Chantier Film.',
+    'Photographe et Vidéaste de mariage haut de gamme en France, Suisse et Luxembourg. Une approche cinématographique et émotionnelle pour des souvenirs intemporels.',
   keywords: [
-    'production vidéo vosges',
-    'agence audiovisuelle epinal',
-    'film corporate vosges',
-    'publicité vidéo lorraine',
-    'captation événementielle',
-    'drone technique',
-    'photogrammétrie drone',
-    'cartographie aérienne',
-    'inspection par drone',
-    'film institutionnel grand-est',
-    'vidéo entreprise nancy',
-    'production audiovisuelle golbey',
-    'agence vidéo professionnelle',
+    'vidéaste mariage luxe',
+    'photographe mariage france',
+    'film mariage cinématographique',
+    'loventia',
+    'nuit blanche production',
+    'mariage suisse',
+    'mariage luxembourg',
+    'vidéo mariage haut de gamme',
+    'photographe mariage grand est',
+    'film de mariage émotionnel',
+    'storytelling mariage',
+    'mariage destination',
+    'cinéaste mariage',
   ],
+  authors: [{ name: 'Nuit Blanche Production' }],
   alternates: {
     canonical: '/',
   },
-  // ✅ CORRECTION 1 : Favicon .ico en premier
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
@@ -50,30 +63,30 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   appleWebApp: {
-    title: 'Nuit Blanche Production',
+    title: 'Loventia',
   },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    siteName: 'Nuit Blanche Production',
-    title: 'Nuit Blanche Production | Agence Vidéo & Drone - Vosges',
+    siteName: 'Loventia',
+    title: 'Loventia | Vidéo & Photo de Mariage - Storytelling Cinématographique',
     description:
-      'Production vidéo globale : Corporate, Publicité, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie et Inspection. Basés à Golbey.',
+      'Photographe et Vidéaste de mariage haut de gamme en France, Suisse et Luxembourg. Une approche cinématographique et émotionnelle pour des souvenirs intemporels.',
     images: [
       {
-        url: '/nuit-blanche-production-video-drone-vosges-social-card.jpg',
+        url: '/loventia-social-card.jpg',
         width: 1200,
         height: 630,
-        alt: 'Nuit Blanche Production - Agence Vidéo & Drone - Vosges',
+        alt: 'Loventia - Vidéo & Photo de Mariage Cinématographique',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nuit Blanche Production | Agence Vidéo & Drone',
+    title: 'Loventia | Vidéo & Photo de Mariage',
     description:
-      'Production vidéo globale : Corporate, Pub, Événementiel. Expertise drone technique : Photogrammétrie, Cartographie & Inspection.',
-    images: ['/nuit-blanche-production-video-drone-vosges-social-card.jpg'],
+      'Photographe et Vidéaste de mariage haut de gamme. Une approche cinématographique et émotionnelle pour des souvenirs intemporels.',
+    images: ['/loventia-social-card.jpg'],
   },
   robots: {
     index: true,
@@ -88,32 +101,28 @@ export const metadata: Metadata = {
   },
 };
 
-// ✅ CORRECTION 2 : Ajout d'une WebPage dans le JSON-LD
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    // WebSite
     {
       '@type': 'WebSite',
       '@id': `${baseUrl}/#website`,
       url: baseUrl,
-      name: 'Nuit Blanche Production',
-      alternateName: 'NBP',
+      name: 'Loventia',
       description:
-        'Nuit Blanche Production, agence de production vidéo et services drone techniques dans les Vosges.',
+        'Service de vidéographie et photographie de mariage haut de gamme en France, Suisse et Luxembourg.',
       publisher: {
         '@id': `${baseUrl}/#organization`,
       },
       inLanguage: 'fr-FR',
     },
-    // ✅ NOUVEAU : WebPage pour la page d'accueil
     {
       '@type': 'WebPage',
       '@id': `${baseUrl}/#webpage`,
       url: baseUrl,
-      name: 'Nuit Blanche Production : Agence Vidéo & Drone (Vosges)',
+      name: 'Loventia : Vidéo & Photo de Mariage Cinématographique',
       description:
-        'Votre partenaire vidéo dans les Vosges. Films corporate, publicité et expertise drone technique (photogrammétrie, inspection).',
+        'Photographe et Vidéaste de mariage haut de gamme. Storytelling émotionnel et intemporel pour votre jour J.',
       isPartOf: {
         '@id': `${baseUrl}/#website`,
       },
@@ -122,27 +131,27 @@ const jsonLd = {
       },
       inLanguage: 'fr-FR',
     },
-    // Organization
     {
-      '@type': 'Organization',
+      '@type': 'ProfessionalService',
       '@id': `${baseUrl}/#organization`,
-      name: 'Nuit Blanche Production',
-      alternateName: 'NBP',
+      name: 'Loventia',
+      alternateName: 'Loventia Films',
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/logos/logo-nuit-blanche-production.webp`,
+        url: `${baseUrl}/logos/logo-loventia.webp`,
         width: 512,
         height: 512,
       },
       image: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/nuit-blanche-production-agence-video-drone-vosges.jpg`,
+        url: `${baseUrl}/loventia-social-card.jpg`,
         width: 1200,
         height: 630,
       },
       description:
-        'Agence de production vidéo professionnelle spécialisée en vidéo corporate, publicité, événementiel et services drone techniques : photogrammétrie, cartographie et inspection.',
+        'Service de vidéographie et photographie de mariage haut de gamme. Une approche cinématographique et émotionnelle pour capturer l\'authenticité et la magie de votre jour J.',
+      priceRange: '$$$',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '39 rue Jean Mermoz',
@@ -155,120 +164,64 @@ const jsonLd = {
         '@type': 'GeoCoordinates',
         latitude: 48.20110400744197,
         longitude: 6.435260076219138,
-      },
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+33-6-51-30-13-83',
-        contactType: 'customer service',
-        areaServed: 'FR',
-        availableLanguage: 'French',
-      },
-      sameAs: [
-        'https://www.instagram.com/nuitblancheproduction',
-        'https://www.linkedin.com/company/50366441/',
-      ],
-    },
-    // LocalBusiness
-    {
-      '@type': 'LocalBusiness',
-      '@id': `${baseUrl}/#localbusiness`,
-      name: 'Nuit Blanche Production',
-      description:
-        'Agence de production audiovisuelle basée à Golbey, spécialisée en vidéo entreprise et services drone techniques.',
-      url: baseUrl,
-      telephone: '+33-6-51-30-13-83',
-      priceRange: '$$-$$$',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '39 rue Jean Mermoz',
-        addressLocality: 'Golbey',
-        postalCode: '88190',
-        addressRegion: 'Vosges',
-        addressCountry: 'FR',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 48.20110400744197,
-        longitude: 6.435260076219138,
-      },
-      image: {
-        '@type': 'ImageObject',
-        url: `${baseUrl}/nuit-blanche-production-agence-video-drone-vosges.jpg`,
-        width: 1200,
-        height: 630,
       },
       areaServed: [
         {
-          '@type': 'State',
-          name: 'Grand Est',
+          '@type': 'Country',
+          name: 'France',
         },
         {
-          '@type': 'City',
-          name: 'Épinal',
+          '@type': 'Country',
+          name: 'Suisse',
         },
         {
-          '@type': 'City',
-          name: 'Nancy',
-        },
-        {
-          '@type': 'City',
-          name: 'Golbey',
+          '@type': 'Country',
+          name: 'Luxembourg',
         },
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Services de Production Vidéo et Drone',
+        name: 'Services Mariage',
         itemListElement: [
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Vidéo Corporate',
-              description: 'Production de films institutionnels et vidéos d\'entreprise',
+              name: 'Film de Mariage Cinématographique',
+              description:
+                'Réalisation de films de mariage avec une approche cinématographique et émotionnelle',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Film Publicitaire',
-              description: 'Création de contenus publicitaires vidéo',
+              name: 'Reportage Photo de Mariage',
+              description:
+                'Photographie de mariage artistique et intemporelle',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Captation Événementielle',
-              description: 'Couverture vidéo d\'événements professionnels',
+              name: 'Package Vidéo + Photo',
+              description:
+                'Formule complète alliant vidéo cinématographique et photographie pour un souvenir complet',
             },
           },
           {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Photogrammétrie par Drone',
-              description: 'Relevés 3D et modélisation par drone',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Cartographie Aérienne',
-              description: 'Cartographie et relevés topographiques par drone',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Inspection Technique',
-              description: 'Inspection par drone de structures et infrastructures',
+              name: 'Mariage Destination',
+              description:
+                'Couverture photo et vidéo de mariages en France, Suisse et Luxembourg',
             },
           },
         ],
       },
+      sameAs: ['https://www.instagram.com/loventiafilms/'],
     },
   ],
 };
@@ -279,17 +232,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className={inter.className}>
+    <html lang="fr" className={`scroll-smooth ${cormorant.variable} ${montserrat.variable}`}>
+      <body className={`${montserrat.className} antialiased bg-[#FDFBF7] text-slate-900`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           key="jsonld"
         />
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-Q9ECMN6Q9J" />
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-2QR0YK46S3" />
         <Navbar />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
