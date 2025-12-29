@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Linkedin, Mail } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,43 +15,33 @@ export default function Footer() {
           <div className="md:col-span-2 flex flex-col items-center text-center">
             <Link href="/" className="inline-block mb-4 group">
               <Image
-                src="/logos/logo-nuit-blanche-production.webp"
-                alt="Nuit Blanche Production"
+                src="/logos/logo-loventia.webp"
+                alt="Loventia"
                 width={384}
                 height={128}
                 className="h-32 w-auto object-contain group-hover:opacity-80 transition-opacity"
               />
             </Link>
             <p className="text-zinc-400 max-w-md">
-              Agence de production audiovisuelle premium. Capturer l'essence.
-              Amplifier l'image.
+              Photographe et Vidéaste de mariage haut de gamme en France, Suisse et Luxembourg. Une approche cinématographique et émotionnelle pour des souvenirs intemporels.
             </p>
             <div className="flex items-center space-x-4 mt-6">
               <a
-                href="https://www.facebook.com/NuitBlancheProduction"
+                href="https://www.instagram.com/loventiafilms/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
-                aria-label="Facebook"
+                aria-label="Instagram"
               >
-                <Facebook size={20} />
+                <Instagram size={20} />
               </a>
-              <a
-                href="https://www.linkedin.com/company/50366441/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/#contact"
                 className="text-zinc-400 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="mailto:contact@nuitblancheproduction.com"
-                className="text-zinc-400 hover:text-white transition-colors"
-                aria-label="Email"
+                aria-label="Contact"
               >
                 <Mail size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -63,7 +53,7 @@ export default function Footer() {
                   href="/#services"
                   className="text-zinc-400 hover:text-white transition-colors text-sm"
                 >
-                  Corporate
+                  Film de Mariage
                 </Link>
               </li>
               <li>
@@ -71,7 +61,7 @@ export default function Footer() {
                   href="/#services"
                   className="text-zinc-400 hover:text-white transition-colors text-sm"
                 >
-                  Événementiel
+                  Reportage Photo
                 </Link>
               </li>
               <li>
@@ -79,7 +69,7 @@ export default function Footer() {
                   href="/#services"
                   className="text-zinc-400 hover:text-white transition-colors text-sm"
                 >
-                  Publicité
+                  Vidéo + Photo
                 </Link>
               </li>
               <li>
@@ -87,7 +77,7 @@ export default function Footer() {
                   href="/#services"
                   className="text-zinc-400 hover:text-white transition-colors text-sm"
                 >
-                  Drone & Technique
+                  Mariage Destination
                 </Link>
               </li>
             </ul>
@@ -126,7 +116,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-zinc-500 text-sm">
-            © {currentYear} Nuit Blanche Production. Tous droits réservés.
+            © {currentYear} Loventia. Tous droits réservés.
           </div>
           <div>
             <Link
