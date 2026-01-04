@@ -1,27 +1,41 @@
 import { Metadata } from 'next';
+import Hero from '@/components/sections/Hero';
+import ValueProposition from '@/components/sections/ValueProposition';
+import Portfolio from '@/components/sections/Portfolio';
+import PricingCard from '@/components/sections/PricingCard';
+import Bonus from '@/components/sections/Bonus';
+import Testimonials from '@/components/sections/Testimonials';
+import FinalCTA from '@/components/sections/FinalCTA';
 
 export const metadata: Metadata = {
-  title: 'Loventia - Wedding Cinematography',
-  description: 'Photo et Vidéo de mariage haut de gamme. Storytelling émotionnel.',
+  title: 'Loventia | Vidéaste & Photographe de Mariage – Grand Est',
+  description:
+    "L'émotion d'un film, l'élégance d'un regard. Vidéaste et photographe de mariage haut de gamme dans le Grand Est. Film cinématographique, reportage photo, drone et teaser J+6.",
 };
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#FDFBF7] p-4 text-center">
-      <div className="space-y-6">
-        <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-tight text-slate-900">
-          LOVENTIA
-        </h1>
-        <div className="h-px w-24 bg-slate-300 mx-auto" />
-        <p className="text-lg md:text-xl text-slate-500 font-light tracking-wide">
-          Wedding Cinematography & Photography
-        </p>
-        <div className="pt-8">
-          <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-600 shadow-sm">
-            Site en construction
-          </span>
-        </div>
-      </div>
+    <main>
+      {/* Hero - Fullscreen immersive with parallax */}
+      <Hero />
+
+      {/* Value Proposition - 3 pillars */}
+      <ValueProposition />
+
+      {/* Portfolio - Masonry grid showcase */}
+      <Portfolio />
+
+      {/* Pricing - Premium single offer card */}
+      <PricingCard />
+
+      {/* Bonus - Teaser J+6 & Impressions */}
+      <Bonus />
+
+      {/* Testimonials - Client carousel */}
+      <Testimonials />
+
+      {/* Final CTA - Drive to Calendly */}
+      <FinalCTA />
     </main>
   );
 }
