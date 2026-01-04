@@ -3,16 +3,23 @@
 import { motion } from 'framer-motion';
 import { BookingButton } from '@/components/ui/BookingButton';
 import { Calendar, MessageCircle, Heart } from 'lucide-react';
+import Image from 'next/image';
 
 export default function FinalCTA() {
     return (
-        <section id="contact" className="relative section-padding overflow-hidden">
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-loventia-beige via-loventia-cream to-loventia-beige" />
-
-            {/* Decorative Circles */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-loventia-rose/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-loventia-sage/5 rounded-full blur-3xl" />
+        <section id="contact" className="relative section-padding overflow-hidden min-h-[60vh] flex items-center">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0 bg-black">
+                <Image
+                    src="/asset/_OLD/12.webp"
+                    alt="Couple heureux"
+                    fill
+                    className="object-cover grayscale"
+                    quality={100}
+                    priority
+                />
+                <div className="absolute inset-0 bg-black/50" /> {/* Dark overlay for readability */}
+            </div>
 
             <div className="container-max relative z-10">
                 <motion.div
@@ -23,16 +30,16 @@ export default function FinalCTA() {
                     className="text-center max-w-3xl mx-auto"
                 >
                     {/* Headline */}
-                    <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-loventia-charcoal mb-6 leading-tight">
+                    <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight drop-shadow-lg">
                         Prêts à vivre
                         <br />
                         <span className="italic text-loventia-rose">l'expérience Loventia ?</span>
                     </h2>
 
                     {/* Subtext */}
-                    <p className="font-sans text-lg md:text-xl text-loventia-charcoal/70 mb-10 max-w-2xl mx-auto">
+                    <p className="font-sans text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-md">
                         Chaque histoire d'amour mérite d'être racontée avec passion.
-                        Réservez un appel découverte pour discuter de votre vision.
+                        Bloquez dès maintenant votre date pour immortaliser ce jour unique.
                     </p>
 
                     {/* CTA Button */}
@@ -44,7 +51,7 @@ export default function FinalCTA() {
                         className="mb-12"
                     >
                         <BookingButton variant="hero">
-                            Vérifier notre disponibilité
+                            Réservez votre date
                         </BookingButton>
                     </motion.div>
 
@@ -54,7 +61,7 @@ export default function FinalCTA() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.5 }}
-                        className="flex flex-wrap justify-center gap-8 text-loventia-charcoal/60"
+                        className="flex flex-wrap justify-center gap-8 text-white/80"
                     >
                         <div className="flex items-center gap-2">
                             <Calendar size={18} className="text-loventia-rose" />

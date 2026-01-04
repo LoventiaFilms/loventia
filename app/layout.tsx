@@ -73,7 +73,7 @@ export const metadata: Metadata = {
       "L'émotion d'un film, l'élégance d'un regard. Vidéaste et photographe de mariage haut de gamme pour des souvenirs intemporels.",
     images: [
       {
-        url: '/asset/hero.webp',
+        url: '/film-mariage-cinematique-haut-de-gamme-loventia-production.webp',
         width: 1200,
         height: 630,
         alt: 'Loventia - Vidéaste et Photographe de Mariage',
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     title: 'Loventia | Vidéaste & Photographe de Mariage',
     description:
       "L'émotion d'un film, l'élégance d'un regard. Storytelling cinématographique pour votre mariage.",
-    images: ['/asset/hero.webp'],
+    images: ['/photographe-videaste-mariage-luxe-france-suisse-italie-loventia-social-card.webp'],
   },
   robots: {
     index: true,
@@ -138,13 +138,13 @@ const jsonLd = {
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/asset/1-BASE.webp`,
+        url: `${baseUrl}/loventia-videaste-mariage-logo-texte.webp`,
         width: 512,
         height: 512,
       },
       image: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/asset/hero.webp`,
+        url: `${baseUrl}/film-mariage-cinematique-haut-de-gamme-loventia-production.webp`,
         width: 1200,
         height: 630,
       },

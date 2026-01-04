@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 interface BookingButtonProps {
@@ -14,36 +13,17 @@ export function BookingButton({
   className,
   children
 }: BookingButtonProps) {
-  useEffect(() => {
-    // Load Calendly script
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup if needed
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
-
-  const openCalendly = () => {
-    // @ts-expect-error Calendly is loaded from external script
-    if (window.Calendly) {
-      // @ts-expect-error Calendly is loaded from external script
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/loventia/reservation?hide_gdpr_banner=1'
-      });
+  const scrollToCalendly = () => {
+    const calendlySection = document.querySelector('#calendrier');
+    if (calendlySection) {
+      calendlySection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   if (variant === 'compact') {
     return (
       <button
-        onClick={openCalendly}
+        onClick={scrollToCalendly}
         className={cn(
           'inline-flex items-center justify-center px-5 py-2.5',
           'bg-loventia-rose text-white text-sm font-medium',
@@ -60,7 +40,7 @@ export function BookingButton({
   if (variant === 'hero') {
     return (
       <button
-        onClick={openCalendly}
+        onClick={scrollToCalendly}
         className={cn(
           'group relative inline-flex items-center justify-center gap-3',
           'px-10 py-5 bg-loventia-rose text-white',
@@ -75,7 +55,7 @@ export function BookingButton({
         <span className="absolute inset-0 rounded-full bg-loventia-rose/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         <span className="relative z-10 flex items-center gap-3">
-          {children || 'Vérifier la disponibilité'}
+          {children || 'Réservez votre date'}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -99,7 +79,7 @@ export function BookingButton({
   // Default variant
   return (
     <button
-      onClick={openCalendly}
+      onClick={scrollToCalendly}
       className={cn(
         'group relative inline-flex items-center justify-center gap-4',
         'px-8 py-4 bg-loventia-rose text-white',

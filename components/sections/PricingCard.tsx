@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, Camera, Film, Plane, Clock } from 'lucide-react';
+import { Check, Camera, Film, Plane, Clock, RefreshCw, Frame } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 const inclusions = [
@@ -9,6 +9,7 @@ const inclusions = [
     { icon: Camera, text: 'Reportage photo complet' },
     { icon: Plane, text: 'Prises de vue drone' },
     { icon: Clock, text: 'Teaser express J+6' },
+    { icon: RefreshCw, text: 'Modifications illimitées' },
 ];
 
 export default function PricingCard() {
@@ -62,7 +63,7 @@ export default function PricingCard() {
                                     <span className="font-sans text-xl text-loventia-charcoal/70">€ TTC</span>
                                 </div>
                                 <p className="font-sans text-sm text-loventia-charcoal/50 mt-2">
-                                    Aucun frais supplémentaire • Déplacement inclus Grand Est
+                                    Aucun frais supplémentaire • Déplacement inclus (rayon 200km)
                                 </p>
                             </div>
 
@@ -94,12 +95,24 @@ export default function PricingCard() {
                                 ))}
                             </div>
 
-                            {/* Extras */}
-                            <div className="bg-loventia-beige/50 rounded-xl p-6 mb-10">
-                                <p className="font-sans text-sm text-loventia-charcoal/80 text-center">
-                                    <Check size={16} className="inline text-loventia-rose mr-2" />
-                                    <strong>Bonus offert :</strong> Impressions photos sur place pour vos invités
-                                </p>
+                            {/* Upsell Option */}
+                            <div className="bg-loventia-beige/30 rounded-xl p-6 mb-10 border border-loventia-rose/20">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-white rounded-full text-loventia-rose shadow-sm flex-shrink-0">
+                                        <Frame size={24} />
+                                    </div>
+                                    <div className="text-left">
+                                        <span className="text-xs font-bold text-loventia-rose uppercase tracking-wider">
+                                            Disponible en option
+                                        </span>
+                                        <h4 className="font-serif text-lg text-loventia-charcoal mt-1 mb-2">
+                                            Le Bar à Souvenirs
+                                        </h4>
+                                        <p className="font-sans text-sm text-loventia-charcoal/80">
+                                            Impressions photos 15x20cm sur place, mises directement sous cadre pour un cadeau invité inoubliable.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* CTA */}

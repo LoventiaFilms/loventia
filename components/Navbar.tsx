@@ -54,9 +54,9 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: isHidden ? -100 : 0 }}
         transition={{ duration: 0.3 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-            ? 'glass-rose shadow-glass py-3'
-            : 'bg-transparent py-6'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-rose shadow-glass ${isScrolled
+          ? 'py-3'
+          : 'py-4'
           }`}
       >
         <div className="container-max px-4 sm:px-6 lg:px-8">
@@ -64,7 +64,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="relative group flex items-center">
               <Image
-                src="/asset/1-BASE.webp"
+                src="/loventia-videaste-mariage-logo-texte.webp"
                 alt="Loventia - Vidéaste Mariage"
                 width={140}
                 height={50}
@@ -80,10 +80,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className={`font-sans text-sm font-medium transition-colors ${isScrolled
-                      ? 'text-loventia-charcoal hover:text-loventia-rose'
-                      : 'text-white hover:text-loventia-beige'
-                    }`}
+                  className="font-sans text-sm font-medium transition-colors text-loventia-charcoal hover:text-loventia-rose"
                 >
                   {link.label}
                 </a>
@@ -100,10 +97,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled
-                  ? 'text-loventia-charcoal hover:bg-loventia-beige/50'
-                  : 'text-white hover:bg-white/10'
-                }`}
+              className="md:hidden p-2 rounded-lg transition-colors text-loventia-charcoal hover:bg-loventia-beige/50"
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -133,7 +127,7 @@ export default function Navbar() {
 
             {/* Logo */}
             <Image
-              src="/asset/1-BASE.webp"
+              src="/loventia-videaste-mariage-logo-texte.webp"
               alt="Loventia"
               width={180}
               height={60}

@@ -6,6 +6,7 @@ import PricingCard from '@/components/sections/PricingCard';
 import Bonus from '@/components/sections/Bonus';
 import Testimonials from '@/components/sections/Testimonials';
 import FinalCTA from '@/components/sections/FinalCTA';
+import CalendlySection from '@/components/sections/CalendlySection';
 
 export const metadata: Metadata = {
   title: 'Loventia | Vidéaste & Photographe de Mariage – Grand Est',
@@ -36,6 +37,9 @@ export default function Home() {
 
       {/* Final CTA - Drive to Calendly */}
       <FinalCTA />
+
+      {/* Calendly Booking Widget */}
+      <CalendlySection />
     </main>
   );
 }

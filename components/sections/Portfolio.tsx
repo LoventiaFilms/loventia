@@ -5,16 +5,16 @@ import Image from 'next/image';
 
 // Portfolio images from assets
 const portfolioItems = [
-    { src: '/asset/03.webp', alt: 'Mariage romantique', size: 'tall' },
-    { src: '/asset/04.webp', alt: 'Cérémonie élégante', size: 'normal' },
-    { src: '/asset/05.webp', alt: 'Moments intimes', size: 'normal' },
-    { src: '/asset/07.webp', alt: 'Préparatifs mariée', size: 'tall' },
-    { src: '/asset/08.webp', alt: 'Réception de mariage', size: 'normal' },
-    { src: '/asset/09.webp', alt: 'Couple au coucher du soleil', size: 'normal' },
-    { src: '/asset/10.webp', alt: 'Séance photo couple', size: 'tall' },
-    { src: '/asset/12.webp', alt: 'Détails de mariage', size: 'normal' },
-    { src: '/asset/13.webp', alt: 'Échange des vœux', size: 'normal' },
-    { src: '/asset/14.webp', alt: 'Moments de joie', size: 'tall' },
+    { src: '/asset/_OLD/03.webp', alt: 'Mariage romantique', size: 'tall' },
+    { src: '/asset/_OLD/04.webp', alt: 'Cérémonie élégante', size: 'normal' },
+    { src: '/asset/_OLD/05.webp', alt: 'Moments intimes', size: 'normal' },
+    { src: '/asset/_OLD/07.webp', alt: 'Préparatifs mariée', size: 'tall' },
+    { src: '/asset/_OLD/08.webp', alt: 'Réception de mariage', size: 'normal' },
+    { src: '/asset/_OLD/09.webp', alt: 'Couple au coucher du soleil', size: 'normal' },
+    { src: '/asset/_OLD/10.webp', alt: 'Séance photo couple', size: 'tall' },
+    { src: '/asset/_OLD/12.webp', alt: 'Détails de mariage', size: 'normal' },
+    { src: '/asset/_OLD/13.webp', alt: 'Échange des vœux', size: 'normal' },
+    { src: '/asset/_OLD/14.webp', alt: 'Moments de joie', size: 'tall' },
 ];
 
 const containerVariants = {

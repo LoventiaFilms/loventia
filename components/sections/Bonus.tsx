@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Clock, Printer, Gift } from 'lucide-react';
+import { Clock, Tv, Gift } from 'lucide-react';
 
 const bonuses = [
     {
@@ -9,14 +9,14 @@ const bonuses = [
         title: 'Teaser J+6',
         subtitle: 'Votre premier souvenir',
         description:
-            'Recevez un teaser vidéo de 60 secondes seulement 6 jours après votre mariage. Idéal pour partager l\'émotion avec vos proches sur les réseaux.',
+            'Recevez un teaser vidéo de 45 secondes seulement 6 jours après votre mariage. Idéal pour partager l\'émotion avec vos proches sur les réseaux.',
     },
     {
-        icon: Printer,
-        title: 'Impressions sur place',
-        subtitle: 'Un cadeau pour vos invités',
+        icon: Tv,
+        title: 'Le Grand Écran',
+        subtitle: 'Vos émotions en direct',
         description:
-            'Nous offrons des tirages photos instantanés le jour J. Vos invités repartent avec un souvenir tangible de cette belle journée.',
+            'Projection des meilleures photos de la journée sur grand écran pendant votre repas, pour partager l\'émotion à chaud avec tous vos invités.',
     },
 ];
 

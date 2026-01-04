@@ -36,7 +36,7 @@ export default function Hero() {
                 className="absolute inset-0"
             >
                 <Image
-                    src="/asset/hero.webp"
+                    src="/film-mariage-cinematique-haut-de-gamme-loventia-production.webp"
                     alt="Mariage cinématographique - Loventia"
                     fill
                     priority
