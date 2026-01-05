@@ -65,7 +65,7 @@ export default function Navbar() {
             <Link href="/" className="relative group flex items-center">
               <Image
                 src="/loventia-videaste-mariage-logo-texte.webp"
-                alt="Loventia - Vidéaste Mariage"
+                alt="Loventia - Vidéaste et Photographe Mariage Luxe France Suisse"
                 width={140}
                 height={50}
                 className="h-10 md:h-12 w-auto object-contain transition-opacity group-hover:opacity-80"
@@ -128,7 +128,7 @@ export default function Navbar() {
             {/* Logo */}
             <Image
               src="/loventia-videaste-mariage-logo-texte.webp"
-              alt="Loventia"
+              alt="Loventia - Vidéaste et Photographe Mariage Luxe"
               width={180}
               height={60}
               className="mb-12"

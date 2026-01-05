@@ -12,11 +12,11 @@ export default function FinalCTA() {
             <div className="absolute inset-0 z-0 bg-black">
                 <Image
                     src="/reserver-photographe-videaste-mariage-luxe-france-suisse-loventia-contact.webp"
-                    alt="Couple heureux"
+                    alt="Réservez votre vidéaste et photographe de mariage luxe en France et Suisse - Loventia"
                     fill
                     className="object-cover grayscale"
                     quality={100}
-                    priority
+                    sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-black/50" /> {/* Dark overlay for readability */}
             </div>

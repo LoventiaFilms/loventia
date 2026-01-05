@@ -4,6 +4,10 @@ export const metadata: Metadata = {
     title: 'Conditions Générales de Vente | Loventia',
     description:
         'Conditions Générales de Vente de Loventia - Vidéaste et Photographe de Mariage. Consultez nos conditions contractuelles, modalités de réservation, paiement et livraison.',
+    robots: {
+        index: false,
+        follow: true,
+    },
 };
 
 export default function CGVPage() {
