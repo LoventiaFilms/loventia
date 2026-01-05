@@ -72,25 +72,21 @@ const structuredData = {
                 longitude: 6.4492,
             },
             areaServed: [
-                { '@type': 'Country', name: 'France' },
-                { '@type': 'Country', name: 'Suisse' },
-                { '@type': 'Country', name: 'Italie' },
+                // Zone Primaire - Grand Est
                 { '@type': 'State', name: 'Grand Est' },
                 { '@type': 'AdministrativeArea', name: 'Vosges' },
                 { '@type': 'AdministrativeArea', name: 'Alsace' },
                 { '@type': 'AdministrativeArea', name: 'Lorraine' },
-                // Strategic luxury destinations
+                { '@type': 'City', name: 'Nancy' },
+                { '@type': 'City', name: 'Metz' },
+                { '@type': 'City', name: 'Strasbourg' },
+                { '@type': 'City', name: 'Colmar' },
+                // Zone Secondaire - Suisse frontalière
                 { '@type': 'City', name: 'Genève' },
                 { '@type': 'City', name: 'Lausanne' },
-                { '@type': 'City', name: 'Annecy' },
-                { '@type': 'City', name: 'Paris' },
-                { '@type': 'City', name: 'Lyon' },
-                { '@type': 'City', name: 'Strasbourg' },
-                { '@type': 'AdministrativeArea', name: 'Lac Léman' },
-                { '@type': 'AdministrativeArea', name: 'Lac de Côme' },
-                { '@type': 'AdministrativeArea', name: 'Toscane' },
-                { '@type': 'AdministrativeArea', name: 'Côte d\'Azur' },
-                { '@type': 'AdministrativeArea', name: 'Provence' },
+                // Couverture nationale sur demande
+                { '@type': 'Country', name: 'France' },
+                { '@type': 'Country', name: 'Suisse' },
                 { '@type': 'Country', name: 'Luxembourg' },
             ],
             founder: {
@@ -152,7 +148,7 @@ const structuredData = {
                     name: 'Quelles régions couvrez-vous pour les mariages ?',
                     acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Nous couvrons la France (Grand Est, Paris, Annecy, Côte d\'Azur), la Suisse (Genève, Lausanne, Lac Léman), l\'Italie (Lac de Côme, Toscane) et le Luxembourg. Déplacement inclus dans un rayon de 200km autour de Golbey (88190).',
+                        text: 'Nous couvrons principalement le Grand Est (Vosges, Alsace, Lorraine, Nancy, Strasbourg, Metz, Colmar), la Suisse romande (Genève, Lausanne) et le Luxembourg. Déplacement inclus dans un rayon de 200km autour de Golbey (88190). Pour les mariages au-delà, contactez-nous.',
                     },
                 },
                 {
