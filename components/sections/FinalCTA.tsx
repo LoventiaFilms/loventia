@@ -11,7 +11,7 @@ export default function FinalCTA() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0 bg-black">
                 <Image
-                    src="/asset/_OLD/12.webp"
+                    src="/reserver-photographe-videaste-mariage-luxe-france-suisse-loventia-contact.webp"
                     alt="Couple heureux"
                     fill
                     className="object-cover grayscale"
