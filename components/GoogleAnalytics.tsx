@@ -1,25 +1,26 @@
 'use client';
 
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import ReactGA from 'react-ga4';
+import Script from 'next/script';
 
 export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: { GA_MEASUREMENT_ID: string }) {
-  const pathname = usePathname();
+  if (!GA_MEASUREMENT_ID) {
+    return null;
+  }
 
-  useEffect(() => {
-    // Initialisation unique au chargement
-    if (GA_MEASUREMENT_ID) {
-      ReactGA.initialize(GA_MEASUREMENT_ID);
-    }
-  }, [GA_MEASUREMENT_ID]);
-
-  useEffect(() => {
-    // Envoi d'un signal à chaque changement de page (url)
-    if (GA_MEASUREMENT_ID) {
-      ReactGA.send({ hitType: "pageview", page: pathname });
-    }
-  }, [pathname, GA_MEASUREMENT_ID]);
-
-  return null;
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
+      </Script>
+    </>
+  );
 }

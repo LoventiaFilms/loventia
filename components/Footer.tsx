@@ -24,7 +24,7 @@ export default function Footer() {
               <Link href="/" className="flex justify-center mb-6">
                 <Image
                   src="/loventia-photographe-videaste-mariage-logo-footer.webp"
-                  alt="Loventia"
+                  alt="Loventia - Vidéaste et Photographe Mariage Luxe France Suisse Italie"
                   width={180}
                   height={60}
                   className="h-14 w-auto object-contain"
