@@ -47,6 +47,19 @@ export const defaultKeywords = [
     'reportage mariage',
     'teaser mariage',
     'drone mariage',
+    // Geo-targeted luxury keywords
+    'destination wedding Italy',
+    'vidéaste mariage Genève',
+    'photographe mariage Annecy',
+    'film mariage Lac Léman',
+    'luxury wedding videographer Switzerland',
+    'mariage Toscane vidéo',
+    'wedding cinematographer Lake Como',
+    'photographe mariage Lausanne',
+    'vidéaste mariage Paris',
+    'film mariage destination Italie',
+    'mariage luxe Côte d\'Azur',
+    'wedding film France Suisse',
 ];
 
 export const sharedMetadata: Metadata = {
