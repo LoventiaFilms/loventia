@@ -5,72 +5,99 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { BookingButton } from '@/components/ui/BookingButton';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      const currentScrollY = window.scrollY;
+
+      // Show/hide based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+
+      // Glassmorphism trigger
+      setIsScrolled(currentScrollY > 50);
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
-    { href: '/#services', label: 'Services' },
-    { href: '/#fondateurs', label: 'Le Casting' },
-    { href: '/#portfolio', label: 'Portfolio' },
-    { href: '/#contact', label: 'Contact' },
+    { href: '#offre', label: "L'Offre" },
+    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#temoignages', label: 'Témoignages' },
+    { href: '#contact', label: 'Contact' },
   ];
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <>
       <motion.nav
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800'
-            : 'bg-transparent'
-        } h-24`}
+        animate={{ y: isHidden ? -100 : 0 }}
+        transition={{ duration: 0.3 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-rose shadow-glass ${isScrolled
+          ? 'py-3'
+          : 'py-4'
+          }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex items-center justify-between h-full">
-            {/* Logo - Icône permanente */}
+        <div className="container-max px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
             <Link href="/" className="relative group flex items-center">
               <Image
-                src="/logos/logo-nuit-blanche-production-icone.webp"
-                alt="Nuit Blanche Production"
-                width={80}
-                height={80}
-                className="h-16 md:h-20 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                src="/loventia-videaste-mariage-logo-texte.webp"
+                alt="Loventia - Vidéaste Mariage"
+                width={140}
+                height={50}
+                className="h-10 md:h-12 w-auto object-contain transition-opacity group-hover:opacity-80"
                 priority
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
                   href={link.href}
-                  className="text-zinc-300 hover:text-white transition-colors font-medium"
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className="font-sans text-sm font-medium transition-colors text-loventia-charcoal hover:text-loventia-rose"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
-              <BookingButton variant="compact" />
+              <a
+                href="#contact"
+                onClick={(e) => scrollToSection(e, '#contact')}
+                className="btn-primary text-sm !py-3 !px-6"
+              >
+                Réserver
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+              className="md:hidden p-2 rounded-lg transition-colors text-loventia-charcoal hover:bg-loventia-beige/50"
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -79,7 +106,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu - Plein écran */}
+      {/* Mobile Menu - Fullscreen */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -87,32 +114,51 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 h-screen w-screen z-50 bg-zinc-950/98 backdrop-blur-xl flex flex-col justify-center items-center"
+            className="fixed inset-0 z-50 bg-loventia-cream flex flex-col justify-center items-center"
           >
-            {/* Bouton Fermer en haut à droite */}
+            {/* Close Button */}
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute top-6 right-6 text-white p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+              className="absolute top-6 right-6 text-loventia-charcoal p-2 hover:bg-loventia-beige/50 rounded-lg transition-colors"
               aria-label="Fermer le menu"
             >
               <X size={28} />
             </button>
 
-            {/* Navigation centrée */}
-            <div className="flex flex-col items-center space-y-8">
-              {navLinks.map((link) => (
-                <Link
+            {/* Logo */}
+            <Image
+              src="/loventia-videaste-mariage-logo-texte.webp"
+              alt="Loventia"
+              width={180}
+              height={60}
+              className="mb-12"
+            />
+
+            {/* Navigation Links */}
+            <div className="flex flex-col items-center gap-8">
+              {navLinks.map((link, index) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-zinc-300 hover:text-white transition-colors font-medium text-2xl"
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="font-serif text-2xl text-loventia-charcoal hover:text-loventia-rose transition-colors"
                 >
                   {link.label}
-                </Link>
+                </motion.a>
               ))}
-              <div onClick={() => setIsMobileMenuOpen(false)} className="pt-4">
-                <BookingButton variant="default" className="px-8 py-3 text-lg" />
-              </div>
+              <motion.a
+                href="#contact"
+                onClick={(e) => scrollToSection(e, '#contact')}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="btn-primary mt-4"
+              >
+                Réserver ma date
+              </motion.a>
             </div>
           </motion.div>
         )}

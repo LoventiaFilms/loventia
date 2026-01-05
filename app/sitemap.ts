@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.nuitblancheproduction.com'
+  const baseUrl = 'https://www.loventia.fr'
 
   return [
     {
@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/conditions-generales`,
+      url: `${baseUrl}/cgv`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
