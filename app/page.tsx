@@ -9,9 +9,9 @@ import FinalCTA from '@/components/sections/FinalCTA';
 import CalendlySection from '@/components/sections/CalendlySection';
 
 export const metadata: Metadata = {
-  title: 'Loventia | Vidéaste & Photographe de Mariage – Grand Est',
+  title: 'Vidéaste Mariage Luxe Genève Paris | Films Intemporels | Loventia',
   description:
-    "L'émotion d'un film, l'élégance d'un regard. Vidéaste et photographe de mariage haut de gamme dans le Grand Est. Film cinématographique, reportage photo, drone et teaser J+6.",
+    "L'émotion d'un film, l'élégance d'un regard. Vidéaste et photographe de mariage haut de gamme France, Suisse, Italie. Film cinématographique, reportage photo, drone. Réservez votre date pour un film inoubliable.",
 };
 
 export default function Home() {

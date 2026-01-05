@@ -79,10 +79,18 @@ const structuredData = {
                 { '@type': 'AdministrativeArea', name: 'Vosges' },
                 { '@type': 'AdministrativeArea', name: 'Alsace' },
                 { '@type': 'AdministrativeArea', name: 'Lorraine' },
+                // Strategic luxury destinations
                 { '@type': 'City', name: 'Genève' },
+                { '@type': 'City', name: 'Lausanne' },
+                { '@type': 'City', name: 'Annecy' },
                 { '@type': 'City', name: 'Paris' },
                 { '@type': 'City', name: 'Lyon' },
                 { '@type': 'City', name: 'Strasbourg' },
+                { '@type': 'AdministrativeArea', name: 'Lac Léman' },
+                { '@type': 'AdministrativeArea', name: 'Lac de Côme' },
+                { '@type': 'AdministrativeArea', name: 'Toscane' },
+                { '@type': 'AdministrativeArea', name: 'Côte d\'Azur' },
+                { '@type': 'AdministrativeArea', name: 'Provence' },
                 { '@type': 'Country', name: 'Luxembourg' },
             ],
             founder: {
@@ -97,9 +105,12 @@ const structuredData = {
                         '@type': 'Offer',
                         itemOffered: {
                             '@type': 'Service',
-                            name: 'Formule Unique Mariage',
+                            name: 'Formule Unique Mariage Luxe - Cinéma & Photo',
                             description:
-                                'Film cinématique 10-20min + Reportage photo complet + Drone + Teaser J+6 + Modifications illimitées',
+                                'Film cinématique 10-20min + Reportage photo complet + Prises de vue Drone + Teaser Express J+6 + Modifications illimitées du montage final. Déplacement inclus (rayon 200km).',
+                            provider: {
+                                '@id': `${siteConfig.url}/#organization`,
+                            },
                         },
                         price: '2990',
                         priceCurrency: 'EUR',
@@ -123,6 +134,52 @@ const structuredData = {
                 bestRating: '5',
                 worstRating: '1',
             },
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${siteConfig.url}/#faq`,
+            mainEntity: [
+                {
+                    '@type': 'Question',
+                    name: 'Quel est le délai de livraison pour un film de mariage ?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Le teaser vidéo est livré sous 3 à 4 semaines. Le film complet de mariage (10-20 minutes) est livré sous 8 à 12 semaines. La galerie photos complète est disponible sous 4 à 6 semaines.',
+                    },
+                },
+                {
+                    '@type': 'Question',
+                    name: 'Quelles régions couvrez-vous pour les mariages ?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Nous couvrons la France (Grand Est, Paris, Annecy, Côte d\'Azur), la Suisse (Genève, Lausanne, Lac Léman), l\'Italie (Lac de Côme, Toscane) et le Luxembourg. Déplacement inclus dans un rayon de 200km autour de Golbey (88190).',
+                    },
+                },
+                {
+                    '@type': 'Question',
+                    name: 'Combien coûte une prestation complète vidéo et photo ?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Notre formule unique tout-en-un est à 2990€ TTC. Elle inclut : film cinématique 10-20min, reportage photo complet, prises de vue drone, teaser express J+6, et modifications illimitées du montage final.',
+                    },
+                },
+                {
+                    '@type': 'Question',
+                    name: 'Proposez-vous uniquement la vidéo ou aussi la photo ?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Notre formule unique combine vidéo ET photo pour une cohérence artistique parfaite. Vous bénéficiez d\'un film cinématique complet et d\'un reportage photo professionnel de votre journée.',
+                    },
+                },
+                {
+                    '@type': 'Question',
+                    name: 'Combien de modifications peut-on demander sur le film final ?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Nous offrons des modifications illimitées du montage final : ajustements techniques, rythme de montage, changement de musique, correction colorimétrique. Votre satisfaction est notre priorité.',
+                    },
+                },
+            ],
         },
     ],
 };
