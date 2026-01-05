@@ -113,12 +113,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
             <p>© {currentYear} Loventia. Tous droits réservés.</p>
             <div className="flex items-center gap-6">
-              <Link
-                href="/mentions-legales"
-                className="hover:text-white transition-colors"
-              >
-                Mentions légales
-              </Link>
+
               <Link
                 href="/cgv"
                 className="hover:text-white transition-colors"
