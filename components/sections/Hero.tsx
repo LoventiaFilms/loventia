@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 import { BookingButton } from '@/components/ui/BookingButton';
 import { ChevronDown } from 'lucide-react';
 
@@ -92,9 +93,15 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
-                    className="mt-10"
+                    className="mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
                 >
-                    <BookingButton variant="hero" />
+                    <BookingButton variant="hero">Vérifier ma date</BookingButton>
+                    <Link
+                        href="/devis"
+                        className="group relative inline-flex items-center justify-center gap-3 px-8 py-5 border border-white/40 bg-white/5 backdrop-blur-sm text-white font-sans font-semibold text-lg rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/80 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 min-w-[240px] sm:min-w-0"
+                    >
+                        <span>Estimer mon budget</span>
+                    </Link>
                 </motion.div>
             </motion.div>
 
