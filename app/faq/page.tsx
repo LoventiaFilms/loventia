@@ -6,24 +6,32 @@ import { Metadata } from 'next';
 
 const faqs = [
     {
-        question: "Quel est votre délai de livraison ?",
-        answer: "Nous livrons vos créations sous 6 à 8 semaines après votre mariage. Nous prenons le temps de peaufiner chaque détail pour vous offrir un résultat d'exception. Un teaser vidéo vous est envoyé dans les 48h pour patienter !"
+        question: "Quels sont vos délais de livraison réels ?",
+        answer: "Nous savons que vous êtes impatients. Le Teaser (format réel/tiktok) arrive sous 6 jours maximum après le mariage. La galerie photos complète est livrée sous 2 à 3 semaines, et le film final sous 4 semaines. Une option 'Livraison Express' est disponible si vous souhaitez tout recevoir en priorité."
     },
     {
-        question: "Vous déplacez-vous partout en France et à l'étranger ?",
-        answer: "Nous sommes basés dans le Grand Est (Épinal), mais nous nous déplaçons partout en France, en Suisse, au Luxembourg et en Europe. Chaque destination est une nouvelle aventure que nous sommes ravis de capturer pour vous."
+        question: "Proposez-vous des formules sur-mesure ?",
+        answer: "Absolument. C'est notre grande différence. Contrairement aux forfaits rigides, nous vous permettons de composer votre équipe (Photo, Vidéo ou Duo) et vos horaires à la carte via notre 'Estimateur de Budget' en ligne. Vous ne payez que ce dont vous avez vraiment besoin."
     },
     {
-        question: "Comment réserver une prestation ?",
-        answer: "Rien de plus simple ! Contactez-nous via notre formulaire de devis, par téléphone au 06 51 30 13 83, ou par email. Nous échangeons sur votre projet, puis vous recevez un devis personnalisé. Une fois validé, un acompte de 30% sécurise votre date."
+        question: "Le drone est-il inclus ?",
+        answer: "Si vous optez pour le 'Pack Signature Loventia' (notre formule la plus complète), les prises de vue aériennes par drone sont offertes. Pour les prestations à la carte, c'est une option que vous pouvez ajouter si la météo et la législation le permettent."
     },
     {
-        question: "Proposez-vous uniquement le mariage ou d'autres prestations ?",
-        answer: "Le mariage est notre spécialité, mais nous réalisons également des reportages pour fiançailles, baptêmes, anniversaires, et événements familiaux. Chaque moment mérite d'être capturé avec la même élégance et émotion."
+        question: "Jusqu'où vous déplacez-vous ?",
+        answer: "Partout où il y a une histoire à raconter. Les frais de déplacement sont d'ailleurs offerts dans un rayon de 200 km autour d'Épinal (couvrant Nancy, Metz, Strasbourg, Luxembourg). Au-delà, nous appliquons un forfait kilométrique standard validé ensemble sur le devis."
     },
     {
-        question: "Peut-on choisir la musique de notre film de mariage ?",
-        answer: "Absolument ! Vous pouvez nous suggérer des artistes ou morceaux qui vous correspondent. Nous créons ensuite une bande-son sur mesure qui reflète l'ambiance de votre journée, avec votre validation avant la livraison finale."
+        question: "Peut-on choisir les musiques du film ?",
+        answer: "Pour que vous puissiez partager votre film sur les réseaux sociaux sans blocage, nous utilisons des musiques sous licence professionnelle (Artlist, Musicbed). Nous définissons ensemble le style musical (émotion, dynamique, folk...) et nous sélectionnons les meilleurs titres pour rythmer votre histoire."
+    },
+    {
+        question: "Pouvons-nous demander des modifications sur le montage ?",
+        answer: "Oui, et c'est inclus ! Nous voulons que votre film soit parfait. Une fois la première version livrée, vous pouvez demander des ajustements illimités (changement de plan, coupe, rythme) jusqu'à satisfaction totale."
+    },
+    {
+        question: "Comment bloquer la date ?",
+        answer: "Premier arrivé, premier servi. Après validation de votre devis (faisable en ligne), un acompte de 30% est demandé pour verrouiller définitivement la date dans notre calendrier. Le solde est à régler avant la livraison des images."
     }
 ];
 
