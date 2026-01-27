@@ -147,7 +147,7 @@ const structuredData = {
                     name: 'Quelles régions couvrez-vous pour les mariages ?',
                     acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Basés dans le Grand Est (Nancy, Strasbourg), nous nous déplaçons principalement en Alsace, Lorraine, Suisse et Luxembourg.',
+                        text: 'Basés dans le Grand Est (Épinal), nous nous déplaçons principalement en Alsace, Lorraine, Suisse et Luxembourg.',
                     },
                 },
                 {
