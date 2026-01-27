@@ -166,7 +166,7 @@ export const cities: CityData[] = [
     {
         slug: 'videaste-mariage-luxembourg',
         name: 'Luxembourg',
-        region: 'Luxembourg',
+        region: 'Europe',
         isPrimary: true,
         keywords: ['vidéaste mariage luxembourg', 'photographe mariage luxembourg', 'mariage grand duché'],
         introText: "Le Grand-Duché offre un mélange fascinant de fortifications historiques et de modernité. Nous couvrons régulièrement des mariages prestigieux à Luxembourg-Ville et dans les domaines environnants.",

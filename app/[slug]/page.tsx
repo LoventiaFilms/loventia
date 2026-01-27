@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { cities } from '@/data/cities';
+import { getRegionLabel } from '@/lib/utils';
 import Hero from '@/components/sections/Hero';
 import ValueProposition from '@/components/sections/ValueProposition';
 import Portfolio from '@/components/sections/Portfolio';
@@ -26,8 +27,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 
     return {
-        title: `Vidéaste & Photographe Mariage ${city.name} (${city.region}) | Loventia`,
-        description: `Vidéaste & Photographe de mariage à ${city.name}. Une approche cinématique et haut de gamme pour votre mariage en ${city.region}. Déplacement inclus à ${city.name}.`,
+        title: `Vidéaste & Photographe Mariage ${city.name} (${city.region})`,
+        description: `Vidéaste & Photographe de mariage à ${city.name}. Une approche cinématique et haut de gamme pour votre mariage ${getRegionLabel(city.region)}. Déplacement inclus à ${city.name}.`,
         keywords: [
             ...city.keywords,
             `mariage ${city.name}`,
@@ -67,7 +68,7 @@ export default function CityPage({ params }: { params: { slug: string } }) {
                 }
                 description={
                     <>
-                        Créateurs de souvenirs d'exception à <strong>{city.name}</strong> et en <strong>{city.region}</strong>.
+                        Créateurs de souvenirs d'exception à <strong>{city.name}</strong> et <strong>{getRegionLabel(city.region)}</strong>.
                         <br className="hidden md:block" />
                         Une approche cinématique pour sublimer votre union.
                     </>
