@@ -9,10 +9,11 @@ import FinalCTA from '@/components/sections/FinalCTA';
 import CalendlySection from '@/components/sections/CalendlySection';
 
 export const metadata: Metadata = {
-  title: 'Loventia | Photographe & vidéaste de mariage dans le Grand Est',
+  title: 'Loventia | Photographe & Vidéaste Mariage Grand Est (Nancy, Metz, Strasbourg)',
   description:
-    "L'émotion d'un film, l'élégance d'un regard. Basés dans le Grand Est (Épinal), nous réalisons des reportages photo et vidéo de mariage haut de gamme en France et en Suisse. Film cinématographique, drone, teaser express.",
+    "Vidéaste & Photographe de mariage (Nancy, Metz, Vosges). L'émotion d'un film, l'élégance d'un regard. Reportage photo et vidéo haut de gamme en France et en Suisse.",
 };
+
 
 export default function Home() {
   return (

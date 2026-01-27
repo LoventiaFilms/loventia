@@ -1,4 +1,5 @@
 import { siteConfig } from '@/app/shared-metadata';
+import { cities } from '@/data/cities';
 
 /**
  * JSON-LD Structured Data Component
@@ -77,14 +78,11 @@ const structuredData = {
                 { '@type': 'AdministrativeArea', name: 'Vosges' },
                 { '@type': 'AdministrativeArea', name: 'Alsace' },
                 { '@type': 'AdministrativeArea', name: 'Lorraine' },
-                { '@type': 'City', name: 'Épinal' },
-                { '@type': 'City', name: 'Nancy' },
-                { '@type': 'City', name: 'Metz' },
-                { '@type': 'City', name: 'Strasbourg' },
-                { '@type': 'City', name: 'Colmar' },
-                // Zone Secondaire - Suisse frontalière
-                { '@type': 'City', name: 'Genève' },
-                { '@type': 'City', name: 'Lausanne' },
+                // Villes dynamiques depuis la config
+                ...cities.map(city => ({
+                    '@type': 'City',
+                    name: city.name
+                })),
                 // Couverture nationale sur demande
                 { '@type': 'Country', name: 'Suisse' },
                 { '@type': 'Country', name: 'Luxembourg' },
