@@ -104,7 +104,7 @@ export default function HomePricingHub() {
 
                             {/* CTA */}
                             <Link
-                                href="/devis"
+                                href="#calendrier"
                                 className="group/btn w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-white font-medium py-4 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-amber-200/50 hover:shadow-amber-300/50"
                             >
                                 Vérifier la disponibilité
