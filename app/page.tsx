@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Hero from '@/components/sections/Hero';
 import ValueProposition from '@/components/sections/ValueProposition';
 import Portfolio from '@/components/sections/Portfolio';
-import PricingCard from '@/components/sections/PricingCard';
+import HomePricingHub from '@/components/home/HomePricingHub';
 import Bonus from '@/components/sections/Bonus';
 import Testimonials from '@/components/sections/Testimonials';
 import FinalCTA from '@/components/sections/FinalCTA';
@@ -26,8 +26,8 @@ export default function Home() {
       {/* Portfolio - Masonry grid showcase */}
       <Portfolio />
 
-      {/* Pricing - Premium single offer card */}
-      <PricingCard />
+      {/* Pricing Hub - Dual card funnel to /devis */}
+      <HomePricingHub />
 
       {/* Bonus - Teaser J+6 & Impressions */}
       <Bonus />
