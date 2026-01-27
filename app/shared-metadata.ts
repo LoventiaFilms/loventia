@@ -34,27 +34,23 @@ export const siteConfig = {
 export const defaultKeywords = [
     // Zone Primaire - Grand Est (80%)
     'vidéaste mariage Grand Est',
-    'photographe mariage Alsace',
-    'photographe mariage Lorraine',
+    'vidéaste mariage Alsace',
+    'vidéaste mariage Lorraine',
     'vidéaste mariage Vosges',
-    'photographe mariage Strasbourg',
+    'vidéaste mariage Strasbourg',
     'vidéaste mariage Nancy',
-    'photographe mariage Metz',
+    'vidéaste mariage Metz',
     'vidéaste mariage Colmar',
+    'photographe mariage Grand Est',
+    // Zone Secondaire - Suisse & Luxembourg (20%)
+    'vidéaste mariage Suisse',
+    'vidéaste mariage Luxembourg',
+    'vidéaste mariage Genève',
+    'photographe mariage Luxembourg',
+    // Mots-clés génériques premium
     'film mariage cinématique',
     'mariage haut de gamme',
     'reportage photo mariage',
-    'film mariage émotionnel',
-    'teaser mariage',
-    'drone mariage',
-    // Zone Secondaire - Suisse frontalière (20%)
-    'vidéaste mariage Genève',
-    'photographe mariage Lausanne',
-    'mariage luxe Suisse romande',
-    // Mots-clés génériques premium
-    'wedding filmmaker France',
-    'photographe mariage luxe',
-    'vidéo mariage luxe',
 ];
 
 export const sharedMetadata: Metadata = {

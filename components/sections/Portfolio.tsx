@@ -5,12 +5,12 @@ import Image from 'next/image';
 
 // Portfolio images from assets
 const portfolioItems = [
-    { src: '/asset/seance-photo-mariage-couple-luxe-suisse-italie-loventia.webp', alt: 'Séance photo mariage couple luxe Grand Est Suisse', size: 'tall' },
-    { src: '/asset/photographe-mariage-couple-spontane-emotions-vives-loventia.webp', alt: 'Photographe mariage couple spontané émotions vives', size: 'normal' },
-    { src: '/asset/sortie-ceremonie-mariage-festive-groupe-emotion-loventia-luxe.webp', alt: 'Sortie cérémonie mariage festive groupe émotion', size: 'normal' },
-    { src: '/asset/shooting-couple-mariage-romantique-naturel-loventia-france.webp', alt: 'Shooting couple mariage romantique naturel France', size: 'tall' },
-    { src: '/asset/alliances-mariage-luxe-detail-macrophotographie-loventia.webp', alt: 'Alliances mariage luxe détail macrophotographie', size: 'normal' },
-    { src: '/asset/bagues-mariage-or-diamant-photographe-suisse-france-loventia.webp', alt: 'Bagues mariage or diamant photographe Suisse France', size: 'normal' },
+    { src: '/asset/seance-photo-mariage-couple-luxe-suisse-italie-loventia.webp', alt: 'Séance photo mariage couple luxe Grand Est et Suisse', size: 'tall' },
+    { src: '/asset/photographe-mariage-couple-spontane-emotions-vives-loventia.webp', alt: 'Photographe mariage couple spontané', size: 'normal' },
+    { src: '/asset/sortie-ceremonie-mariage-festive-groupe-emotion-loventia-luxe.webp', alt: 'Sortie cérémonie mariage festive', size: 'normal' },
+    { src: '/asset/shooting-couple-mariage-romantique-naturel-loventia-france.webp', alt: 'Shooting couple mariage romantique naturel Grand Est', size: 'tall' },
+    { src: '/asset/alliances-mariage-luxe-detail-macrophotographie-loventia.webp', alt: 'Alliances mariage luxe détail', size: 'normal' },
+    { src: '/asset/bagues-mariage-or-diamant-photographe-suisse-france-loventia.webp', alt: 'Bagues mariage or diamant photographe Suisse', size: 'normal' },
 ];
 
 const containerVariants = {
