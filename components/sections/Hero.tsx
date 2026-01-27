@@ -44,8 +44,8 @@ export default function Hero() {
                     sizes="100vw"
                 />
                 {/* Elegant Gradient Overlay - Premium Look */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/70" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent lg:from-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent lg:from-black/30" />
             </motion.div>
 
             {/* Content */}
