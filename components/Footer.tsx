@@ -2,105 +2,154 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Mail, ArrowRight, Calendar } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const zonesIntervention = [
-    'Épinal', 'Nancy', 'Strasbourg', 'Metz', 'Colmar',
-    'Vosges', 'Alsace', 'Lorraine',
-    'Suisse', 'Luxembourg'
-  ];
-
   return (
-    <footer className="bg-loventia-charcoal text-white">
-      {/* Main Footer */}
+    <footer className="bg-[#1a1a1a] text-white">
+      {/* Main Footer - 4 Column Grid */}
       <div className="container-max section-padding !py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <div className="max-w-md">
-              <Link href="/" className="flex justify-center mb-6">
-                <Image
-                  src="/loventia-photographe-videaste-mariage-logo-footer.webp"
-                  alt="Loventia - Vidéaste et Photographe Mariage Grand Est & Suisse"
-                  width={180}
-                  height={60}
-                  className="h-14 w-auto object-contain"
-                />
-              </Link>
-            </div>
-            <p className="text-white/70 mb-6 max-w-md leading-relaxed">
-              L'émotion d'un film, l'élégance d'un regard.
-              Nous capturons l'authenticité et la magie de votre jour J
-              avec une approche cinématographique.
+          {/* Column 1: Brand & Vibe */}
+          <div className="space-y-6">
+            <Link href="/" className="inline-block">
+              <Image
+                src="/loventia-photographe-videaste-mariage-logo-footer.webp"
+                alt="Loventia - Vidéaste et Photographe Mariage Grand Est"
+                width={160}
+                height={53}
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
+
+            <p className="text-white/70 leading-relaxed font-sans text-sm">
+              L'émotion d'un film, l'élégance d'un regard. Créateurs de souvenirs dans le Grand Est et partout en Europe.
             </p>
-            <div className="flex items-center gap-4 flex-wrap">
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-3">
               <a
                 href="https://www.instagram.com/loventiafilms/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-loventia-rose transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
                 aria-label="Instagram Loventia"
               >
-                <Instagram size={18} />
+                <Instagram size={18} className="group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="mailto:contact@loventia.fr"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-loventia-rose transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
                 aria-label="Email"
               >
-                <Mail size={18} />
-              </a>
-              <a
-                href="tel:+33651301383"
-                className="group flex items-center gap-2 px-4 py-2 rounded-full bg-loventia-rose/20 border border-loventia-rose/40 hover:bg-loventia-rose hover:border-loventia-rose transition-all duration-300"
-                aria-label="Appelez nous"
-              >
-                <Phone size={16} className="text-loventia-rose group-hover:text-white transition-colors" />
-                <span className="text-sm font-medium text-loventia-rose group-hover:text-white transition-colors">Appelez nous</span>
+                <Mail size={18} className="group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
 
-          {/* Services & Navigation Column */}
+          {/* Column 2: Navigation */}
           <div>
-            <h3 className="font-serif text-lg mb-6 text-loventia-rose">
-              Navigation
+            <h3 className="font-serif text-xs uppercase tracking-widest mb-6 text-white/40">
+              Explorer
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/portfolio" className="text-white/70 hover:text-white transition-colors text-sm">
-                  Portfolio
+                <Link
+                  href="/portfolio"
+                  className="text-white/70 hover:text-white transition-colors text-sm font-sans inline-flex items-center group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Portfolio</span>
                 </Link>
               </li>
               <li>
-                <Link href="/devis" className="text-white/70 hover:text-white transition-colors text-sm">
-                  Tarifs & Devis
+                <Link
+                  href="/zones-intervention"
+                  className="text-white/70 hover:text-white transition-colors text-sm font-sans inline-flex items-center group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Zones d'intervention</span>
                 </Link>
               </li>
               <li>
-                <Link href="/zones-intervention" className="text-white/70 hover:text-white transition-colors text-sm">
-                  Zones d'intervention
+                <Link
+                  href="/faq"
+                  className="text-white/70 hover:text-white transition-colors text-sm font-sans inline-flex items-center group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Questions Fréquentes</span>
                 </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-white/70 hover:text-white transition-colors text-sm">
-                  FAQ
-                </Link>
-              </li>
-              <li className="pt-4 border-t border-white/10 mt-4">
-                <span className="text-white/40 text-xs tracking-widest uppercase">Offre</span>
-              </li>
-              <li>
-                <span className="text-white/70 text-sm">Film Cinématographique</span>
-              </li>
-              <li>
-                <span className="text-white/70 text-sm">Reportage Photo</span>
               </li>
             </ul>
+          </div>
+
+          {/* Column 3: Services */}
+          <div>
+            <h3 className="font-serif text-xs uppercase tracking-widest mb-6 text-white/40">
+              Offres
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/devis?preselect=pack"
+                  className="text-white/70 hover:text-white transition-colors text-sm font-sans inline-flex items-center group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Le Pack Signature</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/devis?type=video"
+                  className="text-white/70 hover:text-white transition-colors text-sm font-sans inline-flex items-center group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Film Cinématographique</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/devis?type=photo"
+                  className="text-white/70 hover:text-white transition-colors text-sm font-sans inline-flex items-center group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Reportage Photo</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Vos Projets (The Money Column) */}
+          <div className="space-y-6">
+            <h3 className="font-serif text-xs uppercase tracking-widest mb-6 text-white/40">
+              Votre Mariage
+            </h3>
+
+            {/* Primary CTA */}
+            <Link
+              href="/devis"
+              className="group inline-flex items-center gap-2 text-[#D4AF37] hover:text-[#F4D03F] transition-colors font-sans text-sm font-medium"
+            >
+              <span>Estimer mon Budget</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            {/* Secondary CTA */}
+            <Link
+              href="/#calendrier"
+              className="group inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors font-sans text-sm"
+            >
+              <Calendar size={14} />
+              <span>Vérifier nos disponibilités</span>
+            </Link>
+
+            {/* Contact */}
+            <div className="pt-4 border-t border-white/10">
+              <p className="text-white/40 text-xs mb-2 font-sans">Nous contacter</p>
+              <a
+                href="tel:+33651301383"
+                className="text-white font-sans text-lg font-medium hover:text-[#D4AF37] transition-colors inline-block"
+              >
+                06 51 30 13 83
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -108,24 +157,28 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container-max px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-sans">
             <p>
-              © {currentYear} Loventia. Tous droits réservés. · Une marque{' '}
-              <a
-                href="https://www.nuitblancheproduction.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors underline underline-offset-2"
-              >
-                Nuit Blanche Production
-              </a>
+              © {currentYear} Loventia. Tous droits réservés.
             </p>
             <div className="flex items-center gap-6">
               <Link
                 href="/cgv"
                 className="hover:text-white transition-colors"
               >
+                Mentions Légales
+              </Link>
+              <Link
+                href="/cgv"
+                className="hover:text-white transition-colors"
+              >
                 CGV
+              </Link>
+              <Link
+                href="/cgv"
+                className="hover:text-white transition-colors"
+              >
+                Politique de Confidentialité
               </Link>
             </div>
           </div>
