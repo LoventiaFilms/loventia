@@ -40,11 +40,12 @@ export default function Hero() {
                     alt="Film mariage cinématique haut de gamme couple luxe Grand Est Alsace Lorraine Suisse Loventia"
                     fill
                     priority
-                    className="object-cover"
+                    className="object-cover object-[75%_center] lg:object-center"
                     sizes="100vw"
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+                {/* Elegant Gradient Overlay - Premium Look */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/70" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent lg:from-black/40" />
             </motion.div>
 
             {/* Content */}
