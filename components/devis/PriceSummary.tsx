@@ -13,7 +13,7 @@ interface PriceSummaryProps {
 
 export function PriceSummary({ breakdown, mediaType, photoHours, videoHours }: PriceSummaryProps) {
     const showPack = breakdown.packLoventiaEligible ||
-        (mediaType === 'duo' && photoHours >= 10 && videoHours >= 10);
+        (mediaType === 'duo' && photoHours >= PRICING.PACK_LOVENTIA_PHOTO_HOURS && videoHours >= PRICING.PACK_LOVENTIA_VIDEO_HOURS);
 
     return (
         <motion.div
@@ -36,7 +36,7 @@ export function PriceSummary({ breakdown, mediaType, photoHours, videoHours }: P
                         className="flex justify-between items-center text-sm"
                     >
                         <span className="text-loventia-charcoal/70">
-                            Photo ({breakdown.isPackApplied && photoHours >= PRICING.PACK_LOVENTIA_PHOTO_HOURS ? '10h incluses' : `${photoHours}h`})
+                            Photo ({breakdown.isPackApplied && photoHours >= PRICING.PACK_LOVENTIA_PHOTO_HOURS ? `${PRICING.PACK_LOVENTIA_PHOTO_HOURS}h incluses` : `${photoHours}h`})
                         </span>
                         <span className="text-loventia-charcoal">
                             {breakdown.isPackApplied ? 'Inclus' : formatPrice(breakdown.photoPrice)}
@@ -51,7 +51,7 @@ export function PriceSummary({ breakdown, mediaType, photoHours, videoHours }: P
                         className="flex justify-between items-center text-sm"
                     >
                         <span className="text-loventia-charcoal/70">
-                            Vidéo ({breakdown.isPackApplied && videoHours >= PRICING.PACK_LOVENTIA_VIDEO_HOURS ? '10h incluses' : `${videoHours}h`})
+                            Vidéo ({breakdown.isPackApplied && videoHours >= PRICING.PACK_LOVENTIA_VIDEO_HOURS ? `${PRICING.PACK_LOVENTIA_VIDEO_HOURS}h incluses` : `${videoHours}h`})
                         </span>
                         <span className="text-loventia-charcoal">
                             {breakdown.isPackApplied ? 'Inclus' : formatPrice(breakdown.videoPrice)}
@@ -157,7 +157,7 @@ export function PriceSummary({ breakdown, mediaType, photoHours, videoHours }: P
 
                 {/* Not Pack eligible hint */}
                 <AnimatePresence>
-                    {mediaType === 'duo' && !breakdown.packLoventiaEligible && photoHours >= 8 && videoHours >= 8 && (
+                    {mediaType === 'duo' && !breakdown.packLoventiaEligible && photoHours >= 6 && videoHours >= 6 && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -165,7 +165,7 @@ export function PriceSummary({ breakdown, mediaType, photoHours, videoHours }: P
                             className="text-xs text-loventia-charcoal/50 text-center mt-3 p-3 bg-loventia-beige/30 rounded-lg"
                         >
                             <Sparkles className="w-4 h-4 inline mr-1 text-loventia-rose/50" />
-                            Sélectionnez 10h+ en Photo & Vidéo avec Drone & Teaser pour débloquer le Pack Loventia
+                            Sélectionnez {PRICING.PACK_LOVENTIA_PHOTO_HOURS}h+ en Photo & Vidéo avec Drone & Teaser pour débloquer le Pack Loventia
                         </motion.div>
                     )}
                 </AnimatePresence>

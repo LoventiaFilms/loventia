@@ -35,7 +35,7 @@ const optionsList = [
     { id: 'teaser' as const, label: 'Teaser Vertical (1 min)', price: PRICING.TEASER, icon: Film, free: false },
     { id: 'interviews' as const, label: 'Interviews invités', price: 0, icon: Podcast, free: true },
     { id: 'longFilm' as const, label: 'Film Long Métrage (+20 min)', price: PRICING.LONG_FILM, icon: Clock, free: false },
-    { id: 'rawFootage' as const, label: 'Rushs Bruts sur SSD', price: PRICING.RAW_FOOTAGE, icon: HardDrive, free: false },
+    { id: 'rawFootage' as const, label: 'Rushs Bruts sur Clé USB', price: PRICING.RAW_FOOTAGE, icon: HardDrive, free: false },
     { id: 'secondPhotographer' as const, label: '2nd Photographe', price: PRICING.SECOND_PHOTOGRAPHER, icon: Users2, free: false },
     { id: 'secondVideographer' as const, label: '2nd Vidéaste', price: PRICING.SECOND_VIDEOGRAPHER, icon: Users2, free: false },
 ];
@@ -146,15 +146,15 @@ export function StepConfiguration({ form, onNext, onPrev }: StepConfigurationPro
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     className={`w-full relative overflow-hidden rounded-2xl p-6 md:p-8 text-left transition-all duration-500 ${isPackSelected
-                            ? 'bg-gradient-to-br from-amber-50 via-white to-amber-50 border-2 border-amber-400 shadow-lg shadow-amber-100'
-                            : 'bg-gradient-to-br from-loventia-beige/30 via-white to-loventia-beige/20 border-2 border-amber-200/50 hover:border-amber-300 hover:shadow-md'
+                        ? 'bg-gradient-to-br from-amber-50 via-white to-amber-50 border-2 border-amber-400 shadow-lg shadow-amber-100'
+                        : 'bg-gradient-to-br from-loventia-beige/30 via-white to-loventia-beige/20 border-2 border-amber-200/50 hover:border-amber-300 hover:shadow-md'
                         }`}
                 >
                     {/* Recommended Badge */}
                     <div className="absolute top-4 right-4">
                         <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-colors ${isPackSelected
-                                ? 'bg-amber-400 text-white'
-                                : 'bg-amber-100 text-amber-700'
+                            ? 'bg-amber-400 text-white'
+                            : 'bg-amber-100 text-amber-700'
                             }`}>
                             <Sparkles className="w-3 h-3" />
                             Recommandé
@@ -166,8 +166,8 @@ export function StepConfiguration({ form, onNext, onPrev }: StepConfigurationPro
                         <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${isPackSelected
-                                        ? 'bg-amber-400 text-white'
-                                        : 'bg-amber-100 text-amber-600'
+                                    ? 'bg-amber-400 text-white'
+                                    : 'bg-amber-100 text-amber-600'
                                     }`}>
                                     <Layers className="w-6 h-6" />
                                 </div>
@@ -193,8 +193,8 @@ export function StepConfiguration({ form, onNext, onPrev }: StepConfigurationPro
                                     <span
                                         key={feature}
                                         className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-colors ${isPackSelected
-                                                ? 'bg-amber-100 text-amber-700'
-                                                : 'bg-loventia-beige/50 text-loventia-charcoal/70'
+                                            ? 'bg-amber-100 text-amber-700'
+                                            : 'bg-loventia-beige/50 text-loventia-charcoal/70'
                                             }`}
                                     >
                                         <Check className="w-3 h-3" />
