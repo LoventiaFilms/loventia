@@ -7,7 +7,21 @@ import Link from 'next/link';
 import { BookingButton } from '@/components/ui/BookingButton';
 import { ChevronDown } from 'lucide-react';
 
-export default function Hero() {
+interface HeroProps {
+    tagline?: string;
+    headline?: React.ReactNode;
+    description?: React.ReactNode;
+    image?: string;
+    isLanding?: boolean;
+}
+
+export default function Hero({
+    tagline = "Vidéaste & Photographe de Mariage",
+    headline = <>L'émotion d'un film,<br /><span className="italic">l'élégance d'un regard.</span></>,
+    description = <>Des souvenirs cinématographiques qui traversent le temps.<br className="hidden md:block" />Grand Est • Alsace • Suisse • Luxembourg</>,
+    image = "/film-mariage-cinematique-haut-de-gamme-loventia-production.webp",
+    isLanding = false
+}: HeroProps) {
     const containerRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -26,6 +40,10 @@ export default function Hero() {
         }
     };
 
+    // Semantic Tags dynamic switching
+    const TaglineTag = isLanding ? motion.h1 : motion.p;
+    const HeadlineTag = isLanding ? motion.h2 : motion.h1;
+
     return (
         <section
             ref={containerRef}
@@ -37,8 +55,8 @@ export default function Hero() {
                 className="absolute inset-0"
             >
                 <Image
-                    src="/film-mariage-cinematique-haut-de-gamme-loventia-production.webp"
-                    alt="Film mariage cinématique haut de gamme couple luxe Grand Est Alsace Lorraine Suisse Loventia"
+                    src={image}
+                    alt="Film mariage cinématique haut de gamme couple luxe Grand Est Alsace Lorraine Suisse Épinal Loventia"
                     fill
                     priority
                     className="object-cover object-[75%_center] lg:object-center"
@@ -55,38 +73,34 @@ export default function Hero() {
                 className="relative z-10 h-full flex flex-col items-center justify-center px-4 text-center"
             >
                 {/* Tagline */}
-                <motion.p
+                <TaglineTag
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="font-sans text-sm md:text-base tracking-[0.3em] uppercase text-white/80 mb-6"
                 >
-                    Vidéaste & Photographe de Mariage
-                </motion.p>
+                    {tagline}
+                </TaglineTag>
 
                 {/* Main Headline */}
-                <motion.h1
+                <HeadlineTag
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.4 }}
                     className="font-serif text-4xl md:text-6xl lg:text-7xl text-white max-w-4xl leading-tight text-shadow-lg"
                 >
-                    L'émotion d'un film,
-                    <br />
-                    <span className="italic">l'élégance d'un regard.</span>
-                </motion.h1>
+                    {headline}
+                </HeadlineTag>
 
                 {/* Subline */}
-                <motion.p
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                     className="font-sans text-base md:text-lg text-white/80 mt-6 max-w-2xl"
                 >
-                    Des souvenirs cinématographiques qui traversent le temps.
-                    <br className="hidden md:block" />
-                    Grand Est • Alsace • Suisse • Luxembourg
-                </motion.p>
+                    {description}
+                </motion.div>
 
                 {/* CTA Button */}
                 <motion.div

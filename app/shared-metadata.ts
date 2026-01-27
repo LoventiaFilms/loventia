@@ -9,7 +9,7 @@ export const siteConfig = {
     name: 'Loventia',
     url: 'https://www.loventia.fr',
     description:
-        'Vidéaste & Photographe de mariage haut de gamme. Basés dans le Grand Est (Nancy, Strasbourg), nous réalisons des reportages photo et vidéo de mariage en France et en Suisse.',
+        'Vidéaste & Photographe de mariage haut de gamme. Basés dans le Grand Est (Épinal), nous réalisons des reportages photo et vidéo de mariage en France et en Suisse.',
     founder: 'Denis',
     phone: '+33651301383',
     email: 'contact@loventia.fr',
@@ -32,25 +32,31 @@ export const siteConfig = {
 } as const;
 
 export const defaultKeywords = [
-    // Zone Primaire - Grand Est (80%)
+    // Zone Primaire - Grand Est & Villes Clés
     'vidéaste mariage Grand Est',
-    'vidéaste mariage Alsace',
-    'vidéaste mariage Lorraine',
-    'vidéaste mariage Vosges',
-    'vidéaste mariage Strasbourg',
     'vidéaste mariage Nancy',
     'vidéaste mariage Metz',
-    'vidéaste mariage Colmar',
-    'photographe mariage Grand Est',
-    // Zone Secondaire - Suisse & Luxembourg (20%)
-    'vidéaste mariage Suisse',
+    'vidéaste mariage Strasbourg',
+    'vidéaste mariage Vosges',
     'vidéaste mariage Luxembourg',
+    'vidéaste mariage Suisse',
+    'photographe mariage Grand Est',
+    'photographe mariage Nancy',
+    'photographe mariage Metz',
+
+    // Zone Secondaire & Spécifique
+    'vidéaste mariage Alsace',
+    'vidéaste mariage Lorraine',
+    'vidéaste mariage Colmar',
     'vidéaste mariage Genève',
-    'photographe mariage Luxembourg',
-    // Mots-clés génériques premium
+    'vidéaste mariage Annecy',
+
+    // Mots-clés génériques & Style
     'film mariage cinématique',
     'mariage haut de gamme',
     'reportage photo mariage',
+    'vidéaste mariage luxe',
+    'destination wedding videographer france',
 ];
 
 export const sharedMetadata: Metadata = {
@@ -58,13 +64,13 @@ export const sharedMetadata: Metadata = {
     applicationName: siteConfig.name,
     title: {
         template: '%s | Loventia',
-        default: 'Loventia | Photographe & vidéaste de mariage dans le Grand Est',
+        default: 'Loventia | Photographe & Vidéaste Mariage Grand Est (Nancy, Metz, Strasbourg)',
     },
     description: siteConfig.description,
     keywords: defaultKeywords,
     authors: [{ name: 'Loventia Films' }],
     alternates: {
-        canonical: '/',
+        canonical: '/', // This implies relative to metadataBase, so 'https://www.loventia.fr/'
     },
     icons: {
         icon: [

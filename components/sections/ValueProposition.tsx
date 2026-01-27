@@ -45,7 +45,11 @@ const itemVariants = {
     },
 };
 
-export default function ValueProposition() {
+interface ValuePropositionProps {
+    introText?: React.ReactNode;
+}
+
+export default function ValueProposition({ introText }: ValuePropositionProps) {
     return (
         <section id="valeurs" className="section-padding bg-loventia-cream">
             <div className="container-max">
@@ -60,9 +64,13 @@ export default function ValueProposition() {
                     <h2 className="font-serif text-3xl md:text-5xl text-loventia-charcoal mb-6">
                         Notre Vision
                     </h2>
-                    <p className="font-sans text-loventia-charcoal/70 max-w-2xl mx-auto text-lg">
-                        Plus qu'un simple film, c'est votre histoire sublimée.
-                    </p>
+                    <div className="font-sans text-loventia-charcoal/70 max-w-2xl mx-auto text-lg leading-relaxed">
+                        {introText || (
+                            <p>
+                                Basés au cœur des <strong>Vosges</strong>, nous nous déplaçons à <strong>Nancy, Metz, Luxembourg</strong> et partout où votre histoire nous appelle. Notre mission : sublimer l'authenticité de votre union.
+                            </p>
+                        )}
+                    </div>
                 </motion.div>
 
                 {/* Three Pillars */}
