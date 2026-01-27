@@ -12,13 +12,15 @@ interface HeroProps {
     headline?: React.ReactNode;
     description?: React.ReactNode;
     image?: string;
+    isLanding?: boolean;
 }
 
 export default function Hero({
     tagline = "Vidéaste & Photographe de Mariage",
     headline = <>L'émotion d'un film,<br /><span className="italic">l'élégance d'un regard.</span></>,
     description = <>Des souvenirs cinématographiques qui traversent le temps.<br className="hidden md:block" />Grand Est • Alsace • Suisse • Luxembourg</>,
-    image = "/film-mariage-cinematique-haut-de-gamme-loventia-production.webp"
+    image = "/film-mariage-cinematique-haut-de-gamme-loventia-production.webp",
+    isLanding = false
 }: HeroProps) {
     const containerRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
@@ -37,6 +39,10 @@ export default function Hero({
             nextSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    // Semantic Tags dynamic switching
+    const TaglineTag = isLanding ? motion.h1 : motion.p;
+    const HeadlineTag = isLanding ? motion.h2 : motion.h1;
 
     return (
         <section
@@ -67,24 +73,24 @@ export default function Hero({
                 className="relative z-10 h-full flex flex-col items-center justify-center px-4 text-center"
             >
                 {/* Tagline */}
-                <motion.p
+                <TaglineTag
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="font-sans text-sm md:text-base tracking-[0.3em] uppercase text-white/80 mb-6"
                 >
                     {tagline}
-                </motion.p>
+                </TaglineTag>
 
                 {/* Main Headline */}
-                <motion.h1
+                <HeadlineTag
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.4 }}
                     className="font-serif text-4xl md:text-6xl lg:text-7xl text-white max-w-4xl leading-tight text-shadow-lg"
                 >
                     {headline}
-                </motion.h1>
+                </HeadlineTag>
 
                 {/* Subline */}
                 <motion.div
