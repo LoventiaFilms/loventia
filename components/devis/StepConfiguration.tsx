@@ -366,9 +366,8 @@ export function StepConfiguration({ form, onNext, onPrev }: StepConfigurationPro
                             {optionsList.map((option) => {
                                 const Icon = option.icon;
                                 // Filter options based on media type
-                                if (option.id === 'secondPhotographer' && mediaType === 'video') return null;
-                                if (option.id === 'secondVideographer' && mediaType === 'photo') return null;
-                                if ((option.id === 'longFilm' || option.id === 'rawFootage') && mediaType === 'photo') return null;
+                                if (mediaType === 'photo' && ['teaser', 'interviews', 'longFilm', 'rawFootage', 'secondVideographer'].includes(option.id)) return null;
+                                if (mediaType === 'video' && ['secondPhotographer'].includes(option.id)) return null;
 
                                 return (
                                     <FormField
