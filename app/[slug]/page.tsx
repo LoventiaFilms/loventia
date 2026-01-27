@@ -51,16 +51,23 @@ export default function CityPage({ params }: { params: { slug: string } }) {
         <main>
             {/* Hero - Customisé pour la ville */}
             <Hero
-                title={`Vidéaste & Photographe Mariage ${city.name}`}
-                subtitle={`Votre histoire d'amour\nimmortalisée à ${city.name}.`}
-                locationText={
-                    <p>
+                tagline={`Vidéaste & Photographe Mariage ${city.name}`}
+                headline={
+                    <>
+                        Votre histoire d'amour
+                        <br />
+                        <span className="italic">immortalisée à {city.name}.</span>
+                    </>
+                }
+                description={
+                    <>
                         Créateurs de souvenirs d'exception à <strong>{city.name}</strong> et en <strong>{city.region}</strong>.
                         <br className="hidden md:block" />
                         Une approche cinématique pour sublimer votre union.
-                    </p>
+                    </>
                 }
                 image={city.heroImage} // Fallback handled in component
+                isLanding={true}
             />
 
             {/* Value Proposition - Customisé */}
