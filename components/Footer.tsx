@@ -65,47 +65,41 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services Column */}
+          {/* Services & Navigation Column */}
           <div>
             <h3 className="font-serif text-lg mb-6 text-loventia-rose">
-              Notre Offre
+              Navigation
             </h3>
             <ul className="space-y-3">
               <li>
-                <span className="text-white/70 text-sm">
-                  Film Cinématographique
-                </span>
+                <Link href="/portfolio" className="text-white/70 hover:text-white transition-colors text-sm">
+                  Portfolio
+                </Link>
               </li>
               <li>
-                <span className="text-white/70 text-sm">
-                  Reportage Photo
-                </span>
+                <Link href="/devis" className="text-white/70 hover:text-white transition-colors text-sm">
+                  Tarifs & Devis
+                </Link>
               </li>
               <li>
-                <span className="text-white/70 text-sm">
-                  Prise de vue Drone
-                </span>
+                <Link href="/zones-intervention" className="text-white/70 hover:text-white transition-colors text-sm">
+                  Zones d'intervention
+                </Link>
               </li>
               <li>
-                <span className="text-white/70 text-sm">
-                  Teaser Express J+6
-                </span>
+                <Link href="/faq" className="text-white/70 hover:text-white transition-colors text-sm">
+                  FAQ
+                </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Zones d'intervention - SEO */}
-          <div>
-            <h3 className="font-serif text-lg mb-6 text-loventia-rose">
-              <MapPin size={16} className="inline mr-2" />
-              Zones d'intervention
-            </h3>
-            <ul className="grid grid-cols-2 gap-2">
-              {zonesIntervention.map((zone) => (
-                <li key={zone} className="text-white/70 text-sm">
-                  {zone}
-                </li>
-              ))}
+              <li className="pt-4 border-t border-white/10 mt-4">
+                <span className="text-white/40 text-xs tracking-widest uppercase">Offre</span>
+              </li>
+              <li>
+                <span className="text-white/70 text-sm">Film Cinématographique</span>
+              </li>
+              <li>
+                <span className="text-white/70 text-sm">Reportage Photo</span>
+              </li>
             </ul>
           </div>
         </div>
