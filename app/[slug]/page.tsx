@@ -53,11 +53,17 @@ export default function CityPage({ params }: { params: { slug: string } }) {
             <Hero
                 tagline={`Vidéaste & Photographe Mariage ${city.name}`}
                 headline={
-                    <>
-                        Votre histoire d'amour
-                        <br />
-                        <span className="italic">immortalisée à {city.name}.</span>
-                    </>
+                    city.heroTitleOverride ? (
+                        <>
+                            {city.heroTitleOverride}
+                        </>
+                    ) : (
+                        <>
+                            Votre histoire d'amour
+                            <br />
+                            <span className="italic">immortalisée à {city.name}.</span>
+                        </>
+                    )
                 }
                 description={
                     <>
@@ -70,13 +76,30 @@ export default function CityPage({ params }: { params: { slug: string } }) {
                 isLanding={true}
             />
 
-            {/* Value Proposition - Customisé */}
+            {/* Value Proposition - Enrichi avec le contexte local de la ville */}
             <ValueProposition
                 introText={
-                    <p>
-                        Basés dans le Grand Est, nous connaissons parfaitement <strong>{city.name}</strong> et ses lieux d'exception.
-                        Nous vous accompagnons en <strong>{city.region}</strong> pour capturer l'élégance de votre journée avec discrétion et sensibilité.
-                    </p>
+                    <div className="space-y-6">
+                        <p className="font-medium text-xl leading-relaxed">
+                            {city.introText}
+                        </p>
+
+                        {/* Affichage optionnel des lieux iconiques */}
+                        {city.localLandmarks && city.localLandmarks.length > 0 && (
+                            <div className="pt-4 border-t border-loventia-charcoal/10 mt-6">
+                                <span className="block text-sm uppercase tracking-widest text-loventia-charcoal/50 mb-3 font-semibold">
+                                    Lieux iconiques que nous couvrons
+                                </span>
+                                <div className="flex flex-wrap justify-center gap-3">
+                                    {city.localLandmarks.map((landmark) => (
+                                        <span key={landmark} className="px-3 py-1 bg-white/50 border border-loventia-charcoal/5 rounded-full text-sm text-loventia-charcoal/70">
+                                            {landmark}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 }
             />
 
