@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { UseFormReturn } from 'react-hook-form';
-import { Camera, Video, Layers, Podcast, Plane, Film, Clock, Users2, HardDrive, Zap } from 'lucide-react';
+import { Camera, Video, Layers, Podcast, Plane, Film, Clock, Users2, HardDrive, Zap, Sparkles, Check } from 'lucide-react';
 import {
     FormControl,
     FormField,
@@ -79,6 +79,24 @@ export function StepConfiguration({ form, onNext, onPrev }: StepConfigurationPro
         }
     };
 
+    // One-click Pack Loventia activation
+    const handlePackClick = () => {
+        form.setValue('mediaType', 'duo');
+        form.setValue('photoHours', PRICING.PACK_LOVENTIA_PHOTO_HOURS);
+        form.setValue('videoHours', PRICING.PACK_LOVENTIA_VIDEO_HOURS);
+        form.setValue('options.drone', true);
+        form.setValue('options.teaser', true);
+        form.setValue('options.interviews', true);
+    };
+
+    // Check if current config matches Pack Loventia
+    const isPackSelected =
+        mediaType === 'duo' &&
+        photoHours >= PRICING.PACK_LOVENTIA_PHOTO_HOURS &&
+        videoHours >= PRICING.PACK_LOVENTIA_VIDEO_HOURS &&
+        options.drone &&
+        options.teaser;
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -114,6 +132,109 @@ export function StepConfiguration({ form, onNext, onPrev }: StepConfigurationPro
                     Composez votre prestation idéale
                 </motion.p>
             </div>
+
+            {/* Pack Loventia Hero Card - One-Click Activation */}
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="mb-8"
+            >
+                <motion.button
+                    type="button"
+                    onClick={handlePackClick}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    className={`w-full relative overflow-hidden rounded-2xl p-6 md:p-8 text-left transition-all duration-500 ${isPackSelected
+                            ? 'bg-gradient-to-br from-amber-50 via-white to-amber-50 border-2 border-amber-400 shadow-lg shadow-amber-100'
+                            : 'bg-gradient-to-br from-loventia-beige/30 via-white to-loventia-beige/20 border-2 border-amber-200/50 hover:border-amber-300 hover:shadow-md'
+                        }`}
+                >
+                    {/* Recommended Badge */}
+                    <div className="absolute top-4 right-4">
+                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-colors ${isPackSelected
+                                ? 'bg-amber-400 text-white'
+                                : 'bg-amber-100 text-amber-700'
+                            }`}>
+                            <Sparkles className="w-3 h-3" />
+                            Recommandé
+                        </span>
+                    </div>
+
+                    <div className="flex flex-col md:flex-row md:items-center gap-6">
+                        {/* Icon & Title */}
+                        <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${isPackSelected
+                                        ? 'bg-amber-400 text-white'
+                                        : 'bg-amber-100 text-amber-600'
+                                    }`}>
+                                    <Layers className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="font-serif text-xl md:text-2xl text-loventia-charcoal">
+                                        ✨ Pack Loventia Signature
+                                    </h3>
+                                    <p className="text-sm text-loventia-charcoal/60">
+                                        Le choix des mariés
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Features List */}
+                            <div className="flex flex-wrap gap-2 mt-4">
+                                {[
+                                    `Photo ${PRICING.PACK_LOVENTIA_PHOTO_HOURS}h`,
+                                    `Vidéo ${PRICING.PACK_LOVENTIA_VIDEO_HOURS}h`,
+                                    'Drone',
+                                    'Teaser',
+                                    'Interviews'
+                                ].map((feature) => (
+                                    <span
+                                        key={feature}
+                                        className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-colors ${isPackSelected
+                                                ? 'bg-amber-100 text-amber-700'
+                                                : 'bg-loventia-beige/50 text-loventia-charcoal/70'
+                                            }`}
+                                    >
+                                        <Check className="w-3 h-3" />
+                                        {feature}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Price */}
+                        <div className="text-right md:text-center md:min-w-[160px]">
+                            <p className="text-sm text-loventia-charcoal/50 line-through">
+                                {formatPrice(PRICING.PACK_LOVENTIA_A_LA_CARTE_VALUE)}
+                            </p>
+                            <p className={`font-serif text-3xl md:text-4xl font-semibold transition-colors ${isPackSelected ? 'text-amber-500' : 'text-loventia-rose'
+                                }`}>
+                                {formatPrice(PRICING.PACK_LOVENTIA_PRICE)}
+                            </p>
+                            <p className="text-xs text-loventia-sage font-medium mt-1">
+                                Économie de ~{formatPrice(PRICING.PACK_LOVENTIA_A_LA_CARTE_VALUE - PRICING.PACK_LOVENTIA_PRICE)}
+                            </p>
+                            {!isPackSelected && (
+                                <p className="text-xs text-amber-600 mt-2 font-medium">
+                                    Cliquez pour sélectionner →
+                                </p>
+                            )}
+                            {isPackSelected && (
+                                <motion.p
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="inline-flex items-center gap-1 text-xs text-amber-600 mt-2 font-medium bg-amber-100 px-2 py-1 rounded-full"
+                                >
+                                    <Check className="w-3 h-3" />
+                                    Sélectionné
+                                </motion.p>
+                            )}
+                        </div>
+                    </div>
+                </motion.button>
+            </motion.div>
 
             <div className="grid lg:grid-cols-3 gap-8">
                 {/* Left Column - Configuration */}

@@ -6,8 +6,9 @@
  * - Photo: 1100€ base (0-6h), +100€/hr after
  * 
  * Pack Loventia Signature (2990€):
- * - Photo (10h) + Video (10h) + Drone + Teaser
+ * - Photo (8h) + Video (8h) + Drone + Teaser + Interviews
  * - Drone and Teaser become FREE when Pack is applied
+ * - À la carte value: 3950€ → Savings: ~960€
  */
 
 // Constants
@@ -23,8 +24,9 @@ export const PRICING = {
 
     // Pack Loventia
     PACK_LOVENTIA_PRICE: 2990,
-    PACK_LOVENTIA_PHOTO_HOURS: 10,
-    PACK_LOVENTIA_VIDEO_HOURS: 10,
+    PACK_LOVENTIA_PHOTO_HOURS: 8,
+    PACK_LOVENTIA_VIDEO_HOURS: 8,
+    PACK_LOVENTIA_A_LA_CARTE_VALUE: 3950, // For display purposes
 
     // Options
     DRONE: 200,
@@ -131,7 +133,7 @@ export function calculateDeliveryTotal(
 
 /**
  * Check if configuration qualifies for Pack Loventia
- * Pack requires: Photo(10h) + Video(10h) + Drone + Teaser
+ * Pack requires: Photo(8h+) + Video(8h+) + Drone + Teaser
  */
 export function checkPackLoventiaEligibility(config: QuoteConfig): boolean {
     return (
