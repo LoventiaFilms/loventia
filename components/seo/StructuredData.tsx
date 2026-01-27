@@ -85,7 +85,6 @@ const structuredData = {
                 { '@type': 'City', name: 'Genève' },
                 { '@type': 'City', name: 'Lausanne' },
                 // Couverture nationale sur demande
-                { '@type': 'Country', name: 'France' },
                 { '@type': 'Country', name: 'Suisse' },
                 { '@type': 'Country', name: 'Luxembourg' },
             ],
@@ -148,7 +147,7 @@ const structuredData = {
                     name: 'Quelles régions couvrez-vous pour les mariages ?',
                     acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Nous couvrons principalement le Grand Est (Vosges, Alsace, Lorraine, Nancy, Strasbourg, Metz, Colmar), la Suisse romande (Genève, Lausanne) et le Luxembourg. Déplacement inclus dans un rayon de 200km autour de Golbey (88190). Pour les mariages au-delà, contactez-nous.',
+                        text: 'Basés dans le Grand Est (Nancy, Strasbourg), nous nous déplaçons principalement en Alsace, Lorraine, Suisse et Luxembourg.',
                     },
                 },
                 {

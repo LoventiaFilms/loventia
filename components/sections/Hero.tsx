@@ -83,7 +83,7 @@ export default function Hero() {
                 >
                     Des souvenirs cinématographiques qui traversent le temps.
                     <br className="hidden md:block" />
-                    Grand Est • France • Suisse • Luxembourg
+                    Grand Est • Alsace • Suisse • Luxembourg
                 </motion.p>
 
                 {/* CTA Button */}
