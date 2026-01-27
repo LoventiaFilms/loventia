@@ -11,7 +11,7 @@ import CalendlySection from '@/components/sections/CalendlySection';
 export const metadata: Metadata = {
   title: 'Loventia | Photographe & vidéaste de mariage dans le Grand Est',
   description:
-    "L'émotion d'un film, l'élégance d'un regard. Basés dans le Grand Est (Nancy, Strasbourg), nous réalisons des reportages photo et vidéo de mariage haut de gamme en France et en Suisse. Film cinématographique, drone, teaser express.",
+    "L'émotion d'un film, l'élégance d'un regard. Basés dans le Grand Est (Épinal), nous réalisons des reportages photo et vidéo de mariage haut de gamme en France et en Suisse. Film cinématographique, drone, teaser express.",
 };
 
 export default function Home() {

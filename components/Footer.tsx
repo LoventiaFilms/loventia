@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const zonesIntervention = [
-    'Nancy', 'Strasbourg', 'Metz', 'Colmar',
+    'Épinal', 'Nancy', 'Strasbourg', 'Metz', 'Colmar',
     'Vosges', 'Alsace', 'Lorraine',
     'Suisse', 'Luxembourg'
   ];

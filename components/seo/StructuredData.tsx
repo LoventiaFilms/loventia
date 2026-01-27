@@ -77,6 +77,7 @@ const structuredData = {
                 { '@type': 'AdministrativeArea', name: 'Vosges' },
                 { '@type': 'AdministrativeArea', name: 'Alsace' },
                 { '@type': 'AdministrativeArea', name: 'Lorraine' },
+                { '@type': 'City', name: 'Épinal' },
                 { '@type': 'City', name: 'Nancy' },
                 { '@type': 'City', name: 'Metz' },
                 { '@type': 'City', name: 'Strasbourg' },

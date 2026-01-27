@@ -38,7 +38,7 @@ export default function Hero() {
             >
                 <Image
                     src="/film-mariage-cinematique-haut-de-gamme-loventia-production.webp"
-                    alt="Film mariage cinématique haut de gamme couple luxe Grand Est Alsace Lorraine Suisse Loventia"
+                    alt="Film mariage cinématique haut de gamme couple luxe Grand Est Alsace Lorraine Suisse Épinal Loventia"
                     fill
                     priority
                     className="object-cover object-[75%_center] lg:object-center"

@@ -9,7 +9,7 @@ export const siteConfig = {
     name: 'Loventia',
     url: 'https://www.loventia.fr',
     description:
-        'Vidéaste & Photographe de mariage haut de gamme. Basés dans le Grand Est (Nancy, Strasbourg), nous réalisons des reportages photo et vidéo de mariage en France et en Suisse.',
+        'Vidéaste & Photographe de mariage haut de gamme. Basés dans le Grand Est (Épinal), nous réalisons des reportages photo et vidéo de mariage en France et en Suisse.',
     founder: 'Denis',
     phone: '+33651301383',
     email: 'contact@loventia.fr',
