@@ -1,4 +1,17 @@
-import * as React from 'react';
+import {
+    Html,
+    Head,
+    Body,
+    Container,
+    Section,
+    Text,
+    Heading,
+    Hr,
+    Row,
+    Column,
+    Link,
+} from '@react-email/components';
+import { Tailwind } from '@react-email/tailwind';
 
 interface QuoteEmailProps {
     quoteId: string;
@@ -21,14 +34,15 @@ interface QuoteEmailProps {
     notes?: string;
 }
 
-/**
- * React-Email Template for Quote Confirmation
- * 
- * This is a draft template for use with Resend.
- * To use: npm install @react-email/components resend
- * 
- * For now, this is a placeholder that follows React-Email patterns.
- */
+const getMediaTypeLabel = (type: string) => {
+    switch (type) {
+        case 'photo': return 'Photo uniquement';
+        case 'video': return 'Vidéo uniquement';
+        case 'duo': return 'Photo + Vidéo';
+        default: return type;
+    }
+};
+
 export function QuoteEmail({
     quoteId,
     coupleName1,
@@ -50,267 +64,198 @@ export function QuoteEmail({
     notes,
 }: QuoteEmailProps) {
     return (
-        <html>
-            <head>
+        <Html>
+            <Head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Votre demande de devis - Loventia</title>
-            </head>
-            <body style={{
-                fontFamily: "'Open Sans', Arial, sans-serif",
-                backgroundColor: '#FDFBF7',
-                margin: 0,
-                padding: '40px 20px',
-            }}>
-                <table
-                    role="presentation"
-                    style={{
-                        maxWidth: '600px',
-                        margin: '0 auto',
-                        backgroundColor: '#ffffff',
-                        borderRadius: '16px',
-                        overflow: 'hidden',
-                        boxShadow: '0 4px 20px rgba(183, 110, 121, 0.1)',
-                    }}
-                    width="100%"
-                >
-                    {/* Header */}
-                    <tr>
-                        <td style={{
-                            backgroundColor: '#B76E79',
-                            padding: '40px 30px',
-                            textAlign: 'center',
-                        }}>
-                            <h1 style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                color: '#ffffff',
-                                fontSize: '28px',
-                                margin: 0,
-                            }}>
+            </Head>
+            <Tailwind>
+                <Body className="bg-[#FDFBF7] font-sans py-10 px-4">
+                    <Container className="bg-white rounded-2xl overflow-hidden max-w-[600px] mx-auto shadow-lg">
+                        {/* Header */}
+                        <Section className="bg-[#B76E79] px-8 py-10 text-center">
+                            <Heading
+                                as="h1"
+                                className="font-serif text-white text-3xl m-0"
+                            >
                                 Loventia
-                            </h1>
-                            <p style={{
-                                color: 'rgba(255,255,255,0.8)',
-                                fontSize: '12px',
-                                letterSpacing: '3px',
-                                textTransform: 'uppercase',
-                                marginTop: '8px',
-                            }}>
+                            </Heading>
+                            <Text className="text-white/80 text-xs tracking-[3px] uppercase mt-2 mb-0">
                                 Vidéaste & Photographe de Mariage
-                            </p>
-                        </td>
-                    </tr>
+                            </Text>
+                        </Section>
 
-                    {/* Content */}
-                    <tr>
-                        <td style={{ padding: '40px 30px' }}>
-                            <h2 style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                color: '#333333',
-                                fontSize: '24px',
-                                marginTop: 0,
-                            }}>
-                                Demande de devis reçue
-                            </h2>
+                        {/* Content */}
+                        <Section className="px-8 py-10">
+                            <Heading
+                                as="h2"
+                                className="font-serif text-[#333] text-2xl mt-0 mb-6"
+                            >
+                                Demande reçue ✨
+                            </Heading>
 
-                            <p style={{ color: '#666666', lineHeight: '1.6' }}>
-                                Bonjour {contactName},<br /><br />
+                            <Text className="text-[#666] leading-relaxed">
+                                Bonjour <strong>{contactName}</strong>,
+                            </Text>
+                            <Text className="text-[#666] leading-relaxed">
                                 Nous avons bien reçu votre demande de devis pour le mariage de{' '}
-                                <strong>{coupleName1} & {coupleName2}</strong>.
-                            </p>
+                                <strong className="text-[#B76E79]">{coupleName1} & {coupleName2}</strong>.
+                            </Text>
 
                             {/* Quote Reference */}
-                            <div style={{
-                                backgroundColor: '#F4E1D2',
-                                borderRadius: '12px',
-                                padding: '20px',
-                                textAlign: 'center',
-                                margin: '30px 0',
-                            }}>
-                                <p style={{ margin: 0, color: '#666666', fontSize: '12px' }}>
+                            <Section className="bg-[#F4E1D2] rounded-xl p-5 text-center my-8">
+                                <Text className="text-[#666] text-xs m-0 uppercase tracking-wider">
                                     Référence
-                                </p>
-                                <p style={{
-                                    margin: '8px 0 0',
-                                    fontFamily: "'Courier New', monospace",
-                                    fontSize: '18px',
-                                    color: '#333333',
-                                }}>
+                                </Text>
+                                <Text className="font-mono text-lg text-[#333] m-0 mt-2 font-semibold">
                                     {quoteId}
-                                </p>
-                            </div>
+                                </Text>
+                            </Section>
 
-                            {/* Details */}
-                            <h3 style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                color: '#B76E79',
-                                fontSize: '16px',
-                                borderBottom: '1px solid #F4E1D2',
-                                paddingBottom: '10px',
-                            }}>
-                                Récapitulatif de votre demande
-                            </h3>
+                            <Hr className="border-[#F4E1D2] my-8" />
 
-                            <table style={{ width: '100%', fontSize: '14px' }}>
-                                <tbody>
-                                    <tr>
-                                        <td style={{ padding: '8px 0', color: '#666666' }}>Date</td>
-                                        <td style={{ padding: '8px 0', color: '#333333', textAlign: 'right' }}>{date}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ padding: '8px 0', color: '#666666' }}>Lieu</td>
-                                        <td style={{ padding: '8px 0', color: '#333333', textAlign: 'right' }}>{location}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ padding: '8px 0', color: '#666666' }}>Style</td>
-                                        <td style={{ padding: '8px 0', color: '#333333', textAlign: 'right' }}>{style}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ padding: '8px 0', color: '#666666' }}>Invités</td>
-                                        <td style={{ padding: '8px 0', color: '#333333', textAlign: 'right' }}>{guestCount}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{ padding: '8px 0', color: '#666666' }}>Prestation</td>
-                                        <td style={{ padding: '8px 0', color: '#333333', textAlign: 'right' }}>{mediaType}</td>
-                                    </tr>
-                                    {mediaType !== 'video' && (
-                                        <tr>
-                                            <td style={{ padding: '8px 0', color: '#666666' }}>Photo</td>
-                                            <td style={{ padding: '8px 0', color: '#333333', textAlign: 'right' }}>{photoHours}h</td>
-                                        </tr>
-                                    )}
-                                    {mediaType !== 'photo' && (
-                                        <tr>
-                                            <td style={{ padding: '8px 0', color: '#666666' }}>Vidéo</td>
-                                            <td style={{ padding: '8px 0', color: '#333333', textAlign: 'right' }}>{videoHours}h</td>
-                                        </tr>
-                                    )}
-                                </tbody>
-                            </table>
+                            {/* Configuration Recap */}
+                            <Heading
+                                as="h3"
+                                className="font-serif text-[#B76E79] text-base border-b border-[#F4E1D2] pb-3 mb-4"
+                            >
+                                Récapitulatif
+                            </Heading>
+
+                            <Section>
+                                <Row className="mb-2">
+                                    <Column className="text-[#666] text-sm">Date</Column>
+                                    <Column className="text-[#333] text-sm text-right font-medium">{date}</Column>
+                                </Row>
+                                <Row className="mb-2">
+                                    <Column className="text-[#666] text-sm">Lieu</Column>
+                                    <Column className="text-[#333] text-sm text-right font-medium">{location}</Column>
+                                </Row>
+                                <Row className="mb-2">
+                                    <Column className="text-[#666] text-sm">Style</Column>
+                                    <Column className="text-[#333] text-sm text-right font-medium">{style}</Column>
+                                </Row>
+                                <Row className="mb-2">
+                                    <Column className="text-[#666] text-sm">Invités</Column>
+                                    <Column className="text-[#333] text-sm text-right font-medium">{guestCount}</Column>
+                                </Row>
+                                <Row className="mb-2">
+                                    <Column className="text-[#666] text-sm">Prestation</Column>
+                                    <Column className="text-[#333] text-sm text-right font-medium">{getMediaTypeLabel(mediaType)}</Column>
+                                </Row>
+                                {mediaType !== 'video' && (
+                                    <Row className="mb-2">
+                                        <Column className="text-[#666] text-sm">Photo</Column>
+                                        <Column className="text-[#333] text-sm text-right font-medium">{photoHours}h</Column>
+                                    </Row>
+                                )}
+                                {mediaType !== 'photo' && (
+                                    <Row className="mb-2">
+                                        <Column className="text-[#666] text-sm">Vidéo</Column>
+                                        <Column className="text-[#333] text-sm text-right font-medium">{videoHours}h</Column>
+                                    </Row>
+                                )}
+                            </Section>
 
                             {options.length > 0 && (
-                                <>
-                                    <h4 style={{ color: '#666666', fontSize: '14px', marginTop: '20px' }}>Options sélectionnées</h4>
-                                    <ul style={{ paddingLeft: '20px', color: '#333333' }}>
-                                        {options.map((opt, i) => (
-                                            <li key={i} style={{ marginBottom: '4px' }}>{opt}</li>
-                                        ))}
-                                    </ul>
-                                </>
+                                <Section className="mt-4">
+                                    <Text className="text-[#666] text-xs uppercase tracking-wider mb-2">
+                                        Options
+                                    </Text>
+                                    <Text className="text-[#333] text-sm m-0">
+                                        {options.join(' • ')}
+                                    </Text>
+                                </Section>
                             )}
 
                             {deliveryOptions.length > 0 && (
-                                <>
-                                    <h4 style={{ color: '#666666', fontSize: '14px', marginTop: '20px' }}>Livraison</h4>
-                                    <ul style={{ paddingLeft: '20px', color: '#333333' }}>
-                                        {deliveryOptions.map((opt, i) => (
-                                            <li key={i} style={{ marginBottom: '4px' }}>{opt}</li>
-                                        ))}
-                                    </ul>
-                                </>
+                                <Section className="mt-4">
+                                    <Text className="text-[#666] text-xs uppercase tracking-wider mb-2">
+                                        Livraison
+                                    </Text>
+                                    <Text className="text-[#333] text-sm m-0">
+                                        {deliveryOptions.join(' • ')}
+                                    </Text>
+                                </Section>
                             )}
 
-                            {/* Price */}
-                            <div style={{
-                                backgroundColor: isPackApplied
-                                    ? 'linear-gradient(135deg, rgba(183,110,121,0.1) 0%, rgba(244,225,210,0.5) 100%)'
-                                    : '#FDFBF7',
-                                borderRadius: '12px',
-                                padding: '20px',
-                                textAlign: 'center',
-                                margin: '30px 0',
-                                border: isPackApplied ? '2px solid #B76E79' : '1px solid #F4E1D2',
-                            }}>
+                            {/* Price Box */}
+                            <Section className={`rounded-xl p-6 text-center my-8 ${isPackApplied
+                                    ? 'bg-gradient-to-r from-[#B76E79]/10 to-[#F4E1D2]/50 border-2 border-[#B76E79]'
+                                    : 'bg-[#FDFBF7] border border-[#F4E1D2]'
+                                }`}>
                                 {isPackApplied && (
-                                    <p style={{
-                                        margin: '0 0 10px',
-                                        color: '#B76E79',
-                                        fontSize: '12px',
-                                        fontWeight: 'bold',
-                                    }}>
+                                    <Text className="text-[#B76E79] text-xs font-bold m-0 mb-2">
                                         ✨ Pack Loventia Signature
-                                    </p>
+                                    </Text>
                                 )}
-                                <p style={{ margin: 0, color: '#666666', fontSize: '12px' }}>
+                                <Text className="text-[#666] text-xs m-0 uppercase tracking-wider">
                                     Estimation totale
-                                </p>
-                                <p style={{
-                                    fontFamily: "'Playfair Display', Georgia, serif",
-                                    fontSize: '32px',
-                                    color: '#B76E79',
-                                    margin: '8px 0 0',
-                                    fontWeight: 600,
-                                }}>
+                                </Text>
+                                <Text className="font-serif text-4xl text-[#B76E79] m-0 mt-2 font-semibold">
                                     {finalPrice}
-                                </p>
-                            </div>
+                                </Text>
+                            </Section>
 
                             {notes && (
-                                <>
-                                    <h4 style={{ color: '#666666', fontSize: '14px' }}>Message</h4>
-                                    <p style={{
-                                        color: '#333333',
-                                        backgroundColor: '#F4E1D2',
-                                        padding: '15px',
-                                        borderRadius: '8px',
-                                        fontStyle: 'italic',
-                                    }}>
+                                <Section className="mt-6">
+                                    <Text className="text-[#666] text-xs uppercase tracking-wider mb-2">
+                                        Votre message
+                                    </Text>
+                                    <Text className="text-[#333] text-sm bg-[#F4E1D2]/50 p-4 rounded-lg italic m-0">
                                         "{notes}"
-                                    </p>
-                                </>
+                                    </Text>
+                                </Section>
                             )}
 
-                            <p style={{ color: '#666666', lineHeight: '1.6', marginTop: '30px' }}>
-                                Nous reviendrons vers vous dans les <strong>24 heures</strong> avec un devis détaillé
-                                et nos disponibilités pour votre date.
-                            </p>
+                            <Hr className="border-[#F4E1D2] my-8" />
+
+                            {/* Next Steps */}
+                            <Section className="bg-[#FDFBF7] rounded-xl p-6">
+                                <Heading as="h3" className="font-serif text-[#333] text-lg m-0 mb-3">
+                                    Et ensuite ?
+                                </Heading>
+                                <Text className="text-[#666] text-sm leading-relaxed m-0">
+                                    <strong>Denis ou Maxime</strong> vous recontactera sous <strong>24 heures</strong> pour
+                                    confirmer la disponibilité et discuter des détails de votre journée.
+                                </Text>
+                            </Section>
 
                             {/* Contact */}
-                            <h3 style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                color: '#B76E79',
-                                fontSize: '16px',
-                                borderBottom: '1px solid #F4E1D2',
-                                paddingBottom: '10px',
-                                marginTop: '40px',
-                            }}>
-                                Vos coordonnées
-                            </h3>
-                            <p style={{ color: '#333333', margin: '10px 0' }}>
-                                <strong>Email:</strong> {contactEmail}
-                            </p>
-                            <p style={{ color: '#333333', margin: '10px 0' }}>
-                                <strong>Téléphone:</strong> {contactPhone}
-                            </p>
-                        </td>
-                    </tr>
+                            <Section className="mt-8">
+                                <Text className="text-[#666] text-xs uppercase tracking-wider mb-2">
+                                    Vos coordonnées enregistrées
+                                </Text>
+                                <Text className="text-[#333] text-sm m-0">
+                                    📧 {contactEmail}
+                                </Text>
+                                <Text className="text-[#333] text-sm m-0 mt-1">
+                                    📱 {contactPhone}
+                                </Text>
+                            </Section>
+                        </Section>
 
-                    {/* Footer */}
-                    <tr>
-                        <td style={{
-                            backgroundColor: '#333333',
-                            padding: '30px',
-                            textAlign: 'center',
-                        }}>
-                            <p style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                color: '#B76E79',
-                                fontSize: '18px',
-                                margin: '0 0 10px',
-                            }}>
+                        {/* Footer */}
+                        <Section className="bg-[#333] px-8 py-8 text-center">
+                            <Text className="font-serif text-[#B76E79] text-lg m-0">
                                 Loventia
-                            </p>
-                            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '12px', margin: 0 }}>
+                            </Text>
+                            <Text className="text-white/60 text-xs m-0 mt-2">
                                 Grand Est • Alsace • Suisse • Luxembourg
-                            </p>
-                            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px', marginTop: '15px' }}>
+                            </Text>
+                            <Text className="text-white/40 text-xs m-0 mt-4">
                                 © {new Date().getFullYear()} Loventia. Tous droits réservés.
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-            </body>
-        </html>
+                            </Text>
+                            <Section className="mt-4">
+                                <Link href="https://www.loventia.fr" className="text-[#B76E79] text-xs">
+                                    www.loventia.fr
+                                </Link>
+                            </Section>
+                        </Section>
+                    </Container>
+                </Body>
+            </Tailwind>
+        </Html>
     );
 }
 
